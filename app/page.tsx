@@ -5,7 +5,7 @@ import { Card, CardContent } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
 import { Navbar } from "@/components/navbar"
-import { Github, Linkedin, Mail, ExternalLink, Briefcase, Code, Award } from "lucide-react"
+import { Github, Linkedin, Mail, ExternalLink, Briefcase, Code, Award, Code2 } from "lucide-react"
 
 const fadeInUp = {
   initial: { opacity: 0, y: 60 },
@@ -13,13 +13,7 @@ const fadeInUp = {
   transition: { duration: 0.6, ease: "easeOut" },
 }
 
-const staggerContainer = {
-  animate: {
-    transition: {
-      staggerChildren: 0.1,
-    },
-  },
-}
+
 
 const projects = [
   {
@@ -88,15 +82,12 @@ export default function Portfolio() {
     <div className="min-h-screen bg-background">
       <Navbar />
 
-      {/* Main Content */}
-      <div className="container mx-auto px-6 py-12 max-w-4xl pt-32">
-        {/* Hero Section */}
+      <div className="container mx-auto px-20 py-12 max-w-4xl pt-32">
         <motion.section
           id="home"
           className="text-center mb-20"
           initial="initial"
           animate="animate"
-          variants={staggerContainer}
         >
           <motion.div variants={fadeInUp} className="mb-8">
             <motion.h1
@@ -157,14 +148,12 @@ export default function Portfolio() {
           </motion.div>
         </motion.section>
 
-        {/* Experience Section */}
         <motion.section
           id="experience"
           className="mb-20"
           initial="initial"
           whileInView="animate"
           viewport={{ once: true }}
-          variants={staggerContainer}
         >
           <motion.h2 className="text-3xl font-bold mb-8 flex items-center gap-3" variants={fadeInUp}>
             <Briefcase className="w-8 h-8 text-primary" />
@@ -189,10 +178,6 @@ export default function Portfolio() {
                     using Next.js, GraphQL, and TailwindCSS.
                   </li>
                   <li>• Enhanced blog website performance and user experience through efficient pagination system.</li>
-                  <li>
-                    • Highlighted as one of Keploy's Top 3 contributors in March 2025 for active involvement in
-                    community-driven open-source development.
-                  </li>
                 </ul>
                 <Button variant="outline" size="sm" className="mt-4 bg-transparent" asChild>
                   <a
@@ -210,21 +195,19 @@ export default function Portfolio() {
           </motion.div>
         </motion.section>
 
-        {/* Projects Section */}
         <motion.section
           id="projects"
           className="mb-20"
           initial="initial"
           whileInView="animate"
           viewport={{ once: true }}
-          variants={staggerContainer}
         >
           <motion.h2 className="text-3xl font-bold mb-8 flex items-center gap-3" variants={fadeInUp}>
             <Code className="w-8 h-8 text-primary" />
             Projects
           </motion.h2>
 
-          <motion.div className="grid gap-6" variants={staggerContainer}>
+          <motion.div className="grid gap-6" >
             {projects.map((project, index) => (
               <motion.div key={index} variants={fadeInUp}>
                 <Card className="hover:shadow-lg transition-all duration-300 hover:-translate-y-1">
@@ -266,20 +249,19 @@ export default function Portfolio() {
           </motion.div>
         </motion.section>
 
-        {/* Skills Section */}
         <motion.section
           className="mb-20"
           initial="initial"
           whileInView="animate"
           viewport={{ once: true }}
-          variants={staggerContainer}
+          
         >
           <motion.h2 className="text-3xl font-bold mb-8 flex items-center gap-3" variants={fadeInUp}>
-            <Code className="w-8 h-8 text-primary" />
+            <Code2 className="w-8 h-8 text-primary" />
             Skills
           </motion.h2>
 
-          <motion.div className="grid gap-6" variants={staggerContainer}>
+          <motion.div className="grid gap-6" >
             {Object.entries(skills).map(([category, skillList], index) => (
               <motion.div key={index} variants={fadeInUp}>
                 <Card>
@@ -299,14 +281,12 @@ export default function Portfolio() {
           </motion.div>
         </motion.section>
 
-        {/* Contact Me Section */}
         <motion.section
           id="contact"
           className="mb-20"
           initial="initial"
           whileInView="animate"
           viewport={{ once: true }}
-          variants={staggerContainer}
         >
           <motion.h2 className="text-3xl font-bold mb-8 flex items-center gap-3" variants={fadeInUp}>
             <Mail className="w-8 h-8 text-primary" />
@@ -328,32 +308,20 @@ export default function Portfolio() {
                       Send Email
                     </a>
                   </Button>
-                  <Button variant="outline" asChild>
-                    <a
-                      href="https://linkedin.com/in/michael-hosamani0206/"
-                      target="_blank"
-                      className="flex items-center gap-2"
-                      rel="noreferrer"
-                    >
-                      <Linkedin className="w-4 h-4" />
-                      LinkedIn
-                    </a>
-                  </Button>
                 </div>
               </CardContent>
             </Card>
           </motion.div>
         </motion.section>
 
-        {/* Footer */}
         <motion.footer
-          className="text-center py-8 border-t"
+          className="text-center py-8 pb-0 border-t"
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
         >
-          <p className="text-muted-foreground">Built with Next.js, Framer Motion, and Tailwind CSS</p>
+          © Michael Hosamani - 2025
         </motion.footer>
       </div>
     </div>
