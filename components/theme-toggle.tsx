@@ -77,7 +77,7 @@ export function ThemeToggle() {
       variant="ghost"
       size="icon"
       onClick={toggleTheme}
-      className="relative overflow-hidden"
+      className="relative overflow-hidden cursor-pointer"
       disabled={isAnimating}
     >
       <AnimatePresence mode="wait">
