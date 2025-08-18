@@ -5,15 +5,13 @@ import { Card, CardContent } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
 import { Navbar } from "@/components/navbar"
-import { Github, Linkedin, Mail, ExternalLink, Briefcase, Code, Award, Code2 } from "lucide-react"
+import { Github, Linkedin, Mail, ExternalLink, Briefcase, Award, Code2, FolderGit2 } from "lucide-react"
 
 const fadeInUp = {
   initial: { opacity: 0, y: 60 },
   animate: { opacity: 1, y: 0 },
   transition: { duration: 0.6, ease: "easeOut" },
 }
-
-
 
 const projects = [
   {
@@ -49,7 +47,7 @@ const projects = [
     github: "https://github.com/michael-020",
   },
   {
-    title: "coders-cafe",
+    title: "Coders-cafe",
     description: "Responsive landing page built with Next.js, Tailwind, and Framer Motion for clean UI and smooth animations.",
     tech: ["TypeScript", "Next.js", "Framer-motion"],
     link: "coders-cafe.mikexdev.in",
@@ -83,8 +81,8 @@ export default function Portfolio() {
       <Navbar />
 
       <div className="container mx-auto px-20 py-12 max-w-4xl pt-32">
+        <div id="home" className="absolute top-0"></div>
         <motion.section
-          id="home"
           className="text-center mb-20"
           initial="initial"
           animate="animate"
@@ -147,9 +145,8 @@ export default function Portfolio() {
             </Button>
           </motion.div>
         </motion.section>
-
+        <div id="experience" className="relative bottom-40"></div>
         <motion.section
-          id="experience"
           className="mb-20"
           initial="initial"
           whileInView="animate"
@@ -194,16 +191,15 @@ export default function Portfolio() {
             </Card>
           </motion.div>
         </motion.section>
-
+        <div id="projects" className="relative bottom-40"></div>
         <motion.section
-          id="projects"
           className="mb-20"
           initial="initial"
           whileInView="animate"
           viewport={{ once: true }}
         >
           <motion.h2 className="text-3xl font-bold mb-8 flex items-center gap-3" variants={fadeInUp}>
-            <Code className="w-8 h-8 text-primary" />
+            <FolderGit2 className="w-8 h-8 text-primary" />
             Projects
           </motion.h2>
 
@@ -280,9 +276,8 @@ export default function Portfolio() {
             ))}
           </motion.div>
         </motion.section>
-
+        <div id="contact"className="relative bottom-40"></div>
         <motion.section
-          id="contact"
           className="mb-20"
           initial="initial"
           whileInView="animate"

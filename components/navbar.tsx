@@ -3,12 +3,12 @@
 import { motion } from "framer-motion"
 import { ThemeToggle } from "./theme-toggle"
 import { Button } from "@/components/ui/button"
-import { Home, Briefcase, Code, Mail } from "lucide-react"
+import { Home, Briefcase, Mail, FolderGit2 } from "lucide-react"
 
 const navItems = [
   { name: "Home", href: "#home", icon: Home },
   { name: "Experience", href: "#experience", icon: Briefcase },
-  { name: "Projects", href: "#projects", icon: Code },
+  { name: "Projects", href: "#projects", icon: FolderGit2 },
   { name: "Contact", href: "#contact", icon: Mail },
 ]
 

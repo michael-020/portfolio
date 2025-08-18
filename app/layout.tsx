@@ -7,8 +7,10 @@ import "./globals.css"
 
 export const metadata: Metadata = {
   title: "Michael Hosamani - Full Stack Developer",
-  description: "Portfolio of Michael Hosamani - Full Stack Developer specializing in TypeScript, React, and Node.js",
-  generator: "v0.app",
+  description: "Portfolio of Michael Hosamani - Full Stack Developer specializing in TypeScript, Next.js, MERN Stack, and Node.js",
+  icons: {
+    icon: "/letter-m.png"
+  }
 }
 
 export default function RootLayout({
@@ -20,11 +22,11 @@ export default function RootLayout({
     <html lang="en" suppressHydrationWarning>
       <head>
         <style>{`
-html {
-  font-family: ${GeistSans.style.fontFamily};
-  --font-sans: ${GeistSans.variable};
-  --font-mono: ${GeistMono.variable};
-}
+          html {
+            font-family: ${GeistSans.style.fontFamily};
+            --font-sans: ${GeistSans.variable};
+            --font-mono: ${GeistMono.variable};
+          }
         `}</style>
       </head>
       <body>
