@@ -27,7 +27,7 @@ export function Navbar() {
         animate={{ y: 0, opacity: 1 }}
         transition={{ duration: 0.6, ease: "easeOut" }}
       >
-        <div className="container mx-auto w-full px-4 sm:px-6 py-3 sm:py-4">
+        <div className="container mx-auto w-full px-4 sm:px-6 pb-3 sm:py-4">
           <div className="flex items-center justify-center gap-3 sm:gap-5">
             <div className="hidden sm:flex items-center">
               <div className="border px-3 sm:px-5 py-2 rounded-lg flex">
