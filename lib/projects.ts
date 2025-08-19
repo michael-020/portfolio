@@ -1,4 +1,3 @@
-
 export const projects = [
   {
     title: "Collabodraw",
@@ -7,6 +6,8 @@ export const projects = [
     tech: ["TypeScript", "Next.js", "Express", "WebSockets", "Zustand", "Tailwind CSS", "Prisma", "PostgreSQL"],
     link: "collabodraw.mikexdev.in",
     github: "https://github.com/michael-020",
+    image: "/images/projects/collabodraw.png",
+    imageAlt: "Collabodraw collaborative drawing interface with real-time canvas and AI tools"
   },
   {
     title: "CacheUpp",
@@ -15,14 +16,8 @@ export const projects = [
     tech: ["TypeScript", "MERN", "Pgvector", "WebSockets", "Zustand", "MongoDB"],
     link: "cacheupp.com",
     github: "https://github.com/michael-020",
-  },
-  {
-    title: "DevTalk",
-    description:
-      "Created real-time chat application with WebSockets, TypeScript, and Framer Motion, implementing robust authentication from scratch using cookies and bcrypt.",
-    tech: ["TypeScript", "MERN Stack", "WebSockets", "Zustand", "MongoDB"],
-    link: "devtalk.mikexdev.in",
-    github: "https://github.com/michael-020",
+    image: "/images/projects/cacheupp.png",
+    imageAlt: "CacheUpp social platform showing posts feed and real-time chat interface"
   },
   {
     title: "ReadmeX",
@@ -31,12 +26,26 @@ export const projects = [
     tech: ["TypeScript", "Next.js", "Framer Motion", "Zustand", "Prisma", "PostgreSQL"],
     link: "readmex.mikexdev.in",
     github: "https://github.com/michael-020",
+    image: "/images/projects/readmex.png",
+    imageAlt: "ReadmeX AI-powered README generator with live preview and customization options"
+  },
+  {
+    title: "DevTalk",
+    description:
+      "Created real-time chat application with WebSockets, TypeScript, and Framer Motion, implementing robust authentication from scratch using cookies and bcrypt.",
+    tech: ["TypeScript", "MERN Stack", "WebSockets", "Zustand", "MongoDB"],
+    link: "devtalk.mikexdev.in",
+    github: "https://github.com/michael-020",
+    image: "/images/projects/devtalk.png",
+    imageAlt: "DevTalk real-time chat application with modern messaging interface"
   },
   {
     title: "Coders-cafe",
     description: "Responsive landing page built with Next.js, Tailwind, and Framer Motion for clean UI and smooth animations.",
     tech: ["TypeScript", "Next.js", "Framer-motion"],
     link: "coders-cafe.mikexdev.in",
-    github: "https://github.com/michael-020/coders-cafe"
+    github: "https://github.com/michael-020/coders-cafe",
+    image: "/images/projects/coders-cafe.png",
+    imageAlt: "Coders Cafe responsive landing page with modern design and animations"
   }
 ]

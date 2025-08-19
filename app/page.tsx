@@ -8,6 +8,7 @@ import { Navbar } from "@/components/navbar"
 import { Github, Linkedin, Mail, ExternalLink, Briefcase, Award, Code2, FolderGit2 } from "lucide-react"
 import { projects } from "@/lib/projects"
 import { skills } from "@/lib/skills"
+import Image from "next/image"
 
 const fadeInUp = {
   initial: { opacity: 0, y: 60 },
@@ -134,7 +135,7 @@ export default function Portfolio() {
         </motion.section>
         
         <div id="projects" className="relative -top-20 sm:-top-40"></div>
-        <motion.section
+       <motion.section
           className="mb-16 sm:mb-20"
           initial="initial"
           whileInView="animate"
@@ -145,42 +146,60 @@ export default function Portfolio() {
             Projects
           </motion.h2>
 
-          <motion.div className="grid gap-4 sm:gap-6">
+          <motion.div className="grid gap-6 sm:gap-8">
             {projects.map((project, index) => (
               <motion.div key={index} variants={fadeInUp}>
-                <Card className="hover:shadow-lg transition-all duration-300 hover:-translate-y-1">
-                  <CardContent className="p-4 sm:p-6">
-                    <div className="flex flex-col sm:flex-row sm:items-start justify-between mb-4 gap-3 sm:gap-0">
-                      <h3 className="text-lg sm:text-xl font-semibold">{project.title}</h3>
-                      <div className="flex gap-2 flex-shrink-0">
-                        <Button variant="outline" size="sm" asChild>
-                          <a
-                            href={`https://${project.link}`}
-                            target="_blank"
-                            className="flex items-center gap-1"
-                            rel="noreferrer"
-                          >
-                            <ExternalLink className="w-3 h-3" />
-                            <span className="hidden xs:inline">Live</span>
-                          </a>
-                        </Button>
-                        <Button variant="outline" size="sm" asChild>
-                          <a href={project.github} target="_blank" className="flex items-center gap-1" rel="noreferrer">
-                            <Github className="w-3 h-3" />
-                            <span className="hidden xs:inline">Code</span>
-                          </a>
-                        </Button>
+                <Card className={`${project.title === "Coders-cafe" ? " p-0 lg:py-10 lg:pl-5": "p-0 lg:pl-5"} hover:shadow-lg dark:shadow-accent transition-all duration-300 hover:-translate-y-1 overflow-hidden`}>
+                  <div className="grid items-center lg:grid-cols-2 gap-0">
+                    <div className="relative aspect-video border w-full bg-muted order-1 rounded-md overflow-hidden">
+                        <Image
+                          src={project.image}
+                          alt={project.imageAlt || `${project.title} preview`}
+                          fill
+                          className="object-cover"
+                          sizes="(max-width: 1024px) 100vw, 50vw"
+                        />
+                    </div>
+
+                    <CardContent className="p-4 sm:p-6 flex flex-col justify-between order-1 lg:order-2">
+                      <div>
+                        <div className="flex flex-col sm:flex-row sm:items-start justify-between mb-4 gap-3 sm:gap-0">
+                          <h3 className="text-lg sm:text-xl font-semibold">{project.title}</h3>
+                          <div className="flex gap-2 flex-shrink-0">
+                            <Button variant="outline" size="sm" asChild>
+                              <a
+                                href={`https://${project.link}`}
+                                target="_blank"
+                                className="flex items-center gap-1"
+                                rel="noreferrer"
+                              >
+                                <ExternalLink className="w-3 h-3" />
+                                <span className="hidden xs:inline">Live</span>
+                              </a>
+                            </Button>
+                            <Button variant="outline" size="sm" asChild>
+                              <a href={project.github} target="_blank" className="flex items-center gap-1" rel="noreferrer">
+                                <Github className="w-3 h-3" />
+                                <span className="hidden xs:inline">Code</span>
+                              </a>
+                            </Button>
+                          </div>
+                        </div>
+                        
+                        <p className="text-sm sm:text-base text-muted-foreground mb-4 leading-relaxed">
+                          {project.description}
+                        </p>
                       </div>
-                    </div>
-                    <p className="text-sm sm:text-base text-muted-foreground mb-4">{project.description}</p>
-                    <div className="flex flex-wrap gap-1.5 sm:gap-2">
-                      {project.tech.map((tech, techIndex) => (
-                        <Badge key={techIndex} variant="secondary" className="text-xs">
-                          {tech}
-                        </Badge>
-                      ))}
-                    </div>
-                  </CardContent>
+                      
+                      <div className="flex flex-wrap gap-1.5 sm:gap-2 mt-auto">
+                        {project.tech.map((tech, techIndex) => (
+                          <Badge key={techIndex} variant="secondary" className="text-xs">
+                            {tech}
+                          </Badge>
+                        ))}
+                      </div>
+                    </CardContent>
+                  </div>
                 </Card>
               </motion.div>
             ))}
