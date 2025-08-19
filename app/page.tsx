@@ -40,6 +40,18 @@ export default function Portfolio() {
             <motion.p className="text-lg sm:text-xl md:text-2xl text-muted-foreground mb-6 sm:mb-8 px-2" variants={fadeInUp}>
               Full Stack Developer & Open Source Contributor
             </motion.p>
+            <motion.p 
+              className="text-base sm:text-lg md:text-xl text-muted-foreground text-justify max-w-2xl mx-auto leading-relaxed mb-8 sm:mb-10 px-2"
+              variants={fadeInUp}
+            >
+              I'm a Full Stack Developer with a passion for crafting accessible, pixel-perfect user interfaces that seamlessly blend thoughtful design 
+              with robust engineering. I specialize in building modern, scalable web applications using Next.js, MERN Stack, TypeScript, and Tailwind CSS.
+              <br />
+              My expertise spans from building intuitive frontends to architecting performant backends with REST APIs and WebSockets. 
+              I'm especially drawn to projects at the intersection of design, development, and AI, where user experience meets technical excellence.
+              <br />
+              I thrive in environments that challenge me to learn, push boundaries, and build meaningful digital products that make an impact.
+            </motion.p>
           </motion.div>
 
           <motion.div className="flex flex-wrap justify-center gap-3 sm:gap-4 mb-6 sm:mb-8 px-2" variants={fadeInUp}>
@@ -149,7 +161,7 @@ export default function Portfolio() {
           <motion.div className="grid gap-6 sm:gap-8">
             {projects.map((project, index) => (
               <motion.div key={index} variants={fadeInUp}>
-                <Card className={`${project.title === "Coders-cafe" ? " p-0 lg:py-10 lg:pl-5": "p-0 lg:pl-5"} hover:shadow-lg dark:shadow-accent transition-all duration-300 hover:-translate-y-1 overflow-hidden`}>
+                <Card className={`${project.title === "Coders-cafe" ? " p-0 lg:py-10 lg:pl-5": "p-0 lg:pl-5"} hover:shadow-lg dark:hover:shadow-accent transition-all duration-300 hover:-translate-y-1 overflow-hidden`}>
                   <div className="grid items-center lg:grid-cols-2 gap-0">
                     <div className="relative aspect-video border w-full bg-muted order-1 rounded-md overflow-hidden">
                         <Image
