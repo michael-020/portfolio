@@ -90,8 +90,8 @@ export default function Portfolio() {
           <motion.div variants={fadeInUp} className="mb-6 sm:mb-8">
             <motion.h1
               className="text-3xl sm:text-4xl md:text-5xl lg:text-7xl font-bold mb-3 sm:mb-4 bg-gradient-to-r from-primary to-primary/60 bg-clip-text text-transparent leading-tight"
-              initial={{ opacity: 0, scale: 0.5 }}
-              animate={{ opacity: 1, scale: 1 }}
+              initial={{ opacity: 0, y: 0.5 }}
+              animate={{ opacity: 1, y: 1 }}
               transition={{ duration: 0.8, ease: "easeOut" }}
             >
               Michael Hosamani
