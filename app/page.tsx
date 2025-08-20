@@ -180,6 +180,12 @@ export default function Portfolio() {
                 <Card className={`${project.title === "Coders-cafe" ? " p-0 lg:py-10 lg:pl-5": "p-0 lg:pl-5"} hover:shadow-lg dark:hover:shadow-accent transition-all duration-300 hover:-translate-y-1 overflow-hidden`}>
                   <div className="grid items-center lg:grid-cols-2 gap-0">
                     <div className="relative aspect-video border w-full bg-muted order-1 rounded-md overflow-hidden">
+                      <a
+                        href={`https://${project.link}`}
+                        target="_blank"
+                        className="flex items-center gap-1"
+                        rel="noreferrer"
+                      >
                         <Image
                           src={project.image}
                           alt={project.imageAlt || `${project.title} preview`}
@@ -187,6 +193,7 @@ export default function Portfolio() {
                           className="object-cover"
                           sizes="(max-width: 1024px) 100vw, 50vw"
                         />
+                      </a>
                     </div>
 
                     <CardContent className="p-4 sm:p-6 flex flex-col justify-between order-1 lg:order-2">
