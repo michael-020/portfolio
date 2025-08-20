@@ -9,6 +9,7 @@ import { Github, Linkedin, Mail, ExternalLink, Briefcase, Award, Code2, FolderGi
 import { projects } from "@/lib/projects"
 import { skills } from "@/lib/skills"
 import Image from "next/image"
+import { useState } from "react"
 
 const fadeInUp = {
   initial: { opacity: 0, y: 60 },
@@ -17,6 +18,8 @@ const fadeInUp = {
 }
 
 export default function Portfolio() {
+  const [showMore, setShowMore] = useState(false)
+
   return (
     <div className="min-h-screen bg-background">
       <Navbar />
@@ -44,13 +47,26 @@ export default function Portfolio() {
               className="text-base sm:text-lg md:text-xl text-muted-foreground text-justify max-w-2xl mx-auto leading-relaxed mb-8 sm:mb-10 px-2"
               variants={fadeInUp}
             >
-              I'm a Full Stack Developer with a passion for crafting accessible, pixel-perfect user interfaces that seamlessly blend thoughtful design 
-              with robust engineering. I specialize in building modern, scalable web applications using Next.js, MERN Stack, TypeScript, and Tailwind CSS.
-              <br />
-              My expertise spans from building intuitive frontends to architecting performant backends with REST APIs and WebSockets. 
-              I'm especially drawn to projects at the intersection of design, development, and AI, where user experience meets technical excellence.
-              <br />
-              I thrive in environments that challenge me to learn, push boundaries, and build meaningful digital products that make an impact.
+                I'm a Full Stack Developer with a passion for crafting accessible, pixel-perfect user interfaces that seamlessly blend thoughtful design 
+                with robust engineering. I specialize in building modern, scalable web applications using Next.js, MERN Stack, TypeScript, and Tailwind CSS.
+                
+                {showMore && (
+                  <>
+                    <br />
+                    My expertise spans from building intuitive frontends to architecting performant backends with REST APIs and WebSockets. 
+                    I'm especially drawn to projects at the intersection of design, development, and AI, where user experience meets technical excellence.
+                    <br />
+                    I thrive in environments that challenge me to learn, push boundaries, and build meaningful digital products that make an impact.
+                  </>
+                )}
+
+                <br />
+                <button
+                  onClick={() => setShowMore(!showMore)}
+                  className="text-sm sm:text-md lg:text-md opacity-60 cursor-pointer underline underline-offset-4 font-medium mt-2"
+                >
+                  {showMore ? "See less" : "See more"}
+                </button>
             </motion.p>
           </motion.div>
 
