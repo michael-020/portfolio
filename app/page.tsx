@@ -25,7 +25,7 @@ export default function Portfolio() {
       <Navbar />
 
       <div className="container mx-auto px-4 sm:px-6 lg:px-20 py-8 sm:py-12 max-w-4xl pt-24 sm:pt-32">
-        <div id="home" className="absolute top-0"></div>
+        <div id="about" className="absolute top-0"></div>
         <motion.section
           className="text-center mb-16 sm:mb-20"
           initial="initial"
