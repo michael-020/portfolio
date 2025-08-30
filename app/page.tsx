@@ -1,6 +1,6 @@
 "use client"
 
-import { motion } from "framer-motion"
+import { motion, AnimatePresence, easeInOut } from "framer-motion"
 import { Card, CardContent } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
@@ -15,6 +15,45 @@ const fadeInUp = {
   initial: { opacity: 0, y: 60 },
   animate: { opacity: 1, y: 0 },
   transition: { duration: 0.6, ease: "easeOut" },
+}
+
+const expandedTextVariants = {
+  initial: { 
+    opacity: 0, 
+    height: 0,
+    marginTop: 0
+  },
+  animate: { 
+    opacity: 1, 
+    height: "auto",
+    marginTop: "1rem",
+    transition: { 
+      duration: 0.5, 
+      ease: easeInOut, 
+      opacity: { delay: 0.1, duration: 0.3 }
+    }
+  },
+  exit: { 
+    opacity: 0, 
+    height: 0,
+    marginTop: 0,
+    transition: { 
+      duration: 0.4, 
+      ease: easeInOut, 
+      height: { delay: 0.1 }
+    }
+  }
+}
+
+const buttonVariants = {
+  hover: { 
+    scale: 1.05,
+    transition: { duration: 0.2, ease: easeInOut }
+  },
+  tap: { 
+    scale: 0.95,
+    transition: { duration: 0.1, ease: easeInOut }
+  }
 }
 
 export default function Portfolio() {
@@ -43,31 +82,45 @@ export default function Portfolio() {
             <motion.p className="text-lg sm:text-xl md:text-2xl text-muted-foreground mb-6 sm:mb-8 px-2" variants={fadeInUp}>
               Full Stack Developer & Open Source Contributor
             </motion.p>
-            <motion.p 
+            <motion.div 
               className="text-base sm:text-lg md:text-xl text-muted-foreground text-justify max-w-2xl mx-auto leading-relaxed mb-8 sm:mb-10 px-2"
               variants={fadeInUp}
             >
+              <p>
                 I'm a Full Stack Developer with a passion for crafting accessible, pixel-perfect user interfaces that seamlessly blend thoughtful design 
                 with robust engineering. I specialize in building modern, scalable web applications using Next.js, MERN Stack, TypeScript, and Tailwind CSS.
-                
+              </p>
+              
+              <AnimatePresence mode="wait">
                 {showMore && (
-                  <>
-                    <br />
-                    My expertise spans from building intuitive frontends to architecting performant backends with REST APIs and WebSockets. 
-                    I'm especially drawn to projects at the intersection of design, development, and AI, where user experience meets technical excellence.
-                    <br />
-                    I thrive in environments that challenge me to learn, push boundaries, and build meaningful digital products that make an impact.
-                  </>
+                  <motion.div
+                    variants={expandedTextVariants}
+                    initial="initial"
+                    animate="animate"
+                    exit="exit"
+                    className="overflow-hidden"
+                  >
+                    <p>
+                      My expertise spans from building intuitive frontends to architecting performant backends with REST APIs and WebSockets. 
+                      I'm especially drawn to projects at the intersection of design, development, and AI, where user experience meets technical excellence.
+                    </p>
+                    <p className="mt-4">
+                      I thrive in environments that challenge me to learn, push boundaries, and build meaningful digital products that make an impact.
+                    </p>
+                  </motion.div>
                 )}
+              </AnimatePresence>
 
-                <br />
-                <button
-                  onClick={() => setShowMore(!showMore)}
-                  className="text-sm sm:text-md lg:text-md opacity-60 cursor-pointer underline underline-offset-4 font-medium mt-2"
-                >
-                  {showMore ? "See less" : "See more"}
-                </button>
-            </motion.p>
+              <motion.button
+                onClick={() => setShowMore(!showMore)}
+                className="text-sm sm:text-md lg:text-md opacity-60 cursor-pointer underline underline-offset-4 font-medium mt-4 block transition-all duration-300 hover:opacity-80"
+                whileHover="hover"
+                whileTap="tap"
+                variants={buttonVariants}
+              >
+                {showMore ? "See less" : "See more"}
+              </motion.button>
+            </motion.div>
           </motion.div>
 
           <motion.div className="flex flex-wrap justify-center gap-3 sm:gap-4 mb-6 sm:mb-8 px-2" variants={fadeInUp}>
