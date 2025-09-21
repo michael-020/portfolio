@@ -5,7 +5,7 @@ import { Card, CardContent } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
 import { Navbar } from "@/components/navbar"
-import { Github, Linkedin, Mail, ExternalLink, Briefcase, Award, Code2, FolderGit2 } from "lucide-react"
+import { Github, Linkedin, Mail, ExternalLink, Briefcase, Award, Code2, FolderGit2, File, FileText } from "lucide-react"
 import { projects } from "@/lib/projects"
 import { skills } from "@/lib/skills"
 import Image from "next/image"
@@ -124,13 +124,13 @@ export default function Portfolio() {
           </motion.div>
 
           <motion.div className="flex flex-wrap justify-center gap-3 sm:gap-4 mb-6 sm:mb-8 px-2" variants={fadeInUp}>
-            <Button variant="outline" size="sm" asChild>
+            <Button variant="outline" size="sm" asChild title="Email">
               <a href="mailto:michaelhosamani26@gmail.com" className="flex items-center gap-2">
                 <Mail className="w-4 h-4" />
                 <span className="hidden xs:inline">Email</span>
               </a>
             </Button>
-            <Button variant="outline" size="sm" asChild>
+            <Button variant="outline" size="sm" asChild title="GitHub">
               <a
                 href="https://github.com/michael-020"
                 target="_blank"
@@ -141,7 +141,7 @@ export default function Portfolio() {
                 <span className="hidden xs:inline">GitHub</span>
               </a>
             </Button>
-            <Button variant="outline" size="sm" asChild>
+            <Button variant="outline" size="sm" asChild title="LinkedIn">
               <a
                 href="https://linkedin.com/in/michael-hosamani0206/"
                 target="_blank"
@@ -152,7 +152,7 @@ export default function Portfolio() {
                 <span className="hidden xs:inline">LinkedIn</span>
               </a>
             </Button>
-            <Button variant="outline" size="sm" asChild>
+            <Button variant="outline" size="sm" asChild title="X">
               <a
                 href="https://x.com/MichaelHosamani"
                 target="_blank"
@@ -163,6 +163,17 @@ export default function Portfolio() {
                   <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
                 </svg>
                 <span className="hidden xs:inline">X</span>
+              </a>
+            </Button>
+            <Button variant="outline" size="sm" asChild title="Resume">
+              <a
+                href="https://drive.google.com/file/d/1VKa07n8xvyZ7CX3439G_VDlBWz4nhF70/view?usp=sharing"
+                target="_blank"
+                className="flex items-center gap-2"
+                rel="noreferrer"
+              >
+                <FileText className="w-4 h-4" />
+                <span className="hidden xs:inline">Resume</span>
               </a>
             </Button>
           </motion.div>
