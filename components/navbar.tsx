@@ -22,7 +22,7 @@ export function Navbar() {
 
   return (
       <motion.nav
-        className="fixed top-0 left-0 right-0 z-40 bg-background/70 backdrop-blur-md"
+        className="fixed sm:top-0 left-0 right-0 bottom-0 sm:bottom-auto z-40 bg-background/50 backdrop-blur-md"
         initial={{ y: -100, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
         transition={{ duration: 0.6, ease: "easeOut" }}
@@ -30,7 +30,7 @@ export function Navbar() {
         <div className="container mx-auto w-full px-4 sm:px-6 pb-3 sm:py-4">
           <div className="flex items-center justify-center gap-3 sm:gap-5">
             <div className="hidden sm:flex items-center">
-              <div className="border px-3 sm:px-5 py-2 rounded-lg flex">
+              <div className="border px-3 sm:px-5 py-2 rounded-lg flex ">
                 {navItems.map((item, index) => (
                   <motion.div
                   key={item.name}

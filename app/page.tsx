@@ -60,10 +60,10 @@ export default function Portfolio() {
   const [showMore, setShowMore] = useState(false)
 
   return (
-    <div className="min-h-screen bg-background">
+    <div className="min-h-screen bg-background pb-16 sm:pb-0">
       <Navbar />
 
-      <div className="container mx-auto px-4 sm:px-6 lg:px-20 py-8 sm:py-12 max-w-4xl pt-24 sm:pt-32">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-20 py-8 sm:py-12 max-w-4xl pt-6 sm:pt-32">
         <div id="about" className="absolute top-0"></div>
         <motion.section
           className="text-center mb-16 sm:mb-20"
