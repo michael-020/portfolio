@@ -304,7 +304,7 @@ export default function Portfolio() {
             ))}
           </motion.div>
         </motion.section>
-
+        <div id="skills" className="relative -top-20 sm:-top-40"></div>
         <motion.section
           className="mb-16 sm:mb-20"
           initial="initial"

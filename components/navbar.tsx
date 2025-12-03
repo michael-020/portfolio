@@ -2,13 +2,14 @@
 
 import { motion } from "framer-motion"
 import { Button } from "@/components/ui/button"
-import { Briefcase, Mail, FolderGit2, User, Moon } from "lucide-react"
+import { Briefcase, Mail, FolderGit2, User, Moon, Code2 } from "lucide-react"
 import { ThemeToggle } from "./theme-toggle"
 
 const navItems = [
   { name: "About", href: "#about", icon: User },
   { name: "Experience", href: "#experience", icon: Briefcase },
   { name: "Projects", href: "#projects", icon: FolderGit2 },
+  { name: "Skills", href: "#skills", icon: Code2 },
   { name: "Contact", href: "#contact", icon: Mail },
 ]
 
@@ -39,6 +40,7 @@ export function Navbar() {
                   transition={{ delay: index * 0.1, duration: 0.5 }}
                 >
                   <Button
+                    title={item.name}
                     variant="ghost"
                     size="sm"
                     onClick={() => scrollToSection(item.href)}
