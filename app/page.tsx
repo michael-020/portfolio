@@ -9,7 +9,7 @@ import { Github, Linkedin, Mail, ExternalLink, Briefcase, Award, Code2, FolderGi
 import { projects } from "@/lib/projects"
 import { skills } from "@/lib/skills"
 import Image from "next/image"
-import { useState } from "react"
+import { useState, useRef } from "react"
 
 const fadeInUp = {
   initial: { opacity: 0, y: 60 },
@@ -60,7 +60,19 @@ export default function Portfolio() {
   const [showMore, setShowMore] = useState(false)
   const [showAllProjects, setShowAllProjects] = useState(false)
   const visibleProjects = showAllProjects ? projects : projects.slice(0, 3)
+  const showMoreBtnRef = useRef<HTMLButtonElement>(null)
+  const thirdProjectRef = useRef<HTMLDivElement>(null)
 
+  const handleToggleProjects = () => {
+    if (showAllProjects) {
+      setShowAllProjects(false)
+      setTimeout(() => {
+        thirdProjectRef.current?.scrollIntoView({ behavior: "smooth", block: "start" })
+      }, 100)
+    } else {
+      setShowAllProjects(true)
+    }
+  }
 
   return (
     <div className="min-h-screen bg-background pb-16 sm:pb-0">
@@ -246,6 +258,7 @@ export default function Portfolio() {
               {visibleProjects.map((project, index) => (
                 <motion.div
                   key={project.title}
+                  ref={index === 2 ? thirdProjectRef : undefined}
                   variants={fadeInUp}
                   initial="initial"
                   animate="animate"
@@ -318,19 +331,38 @@ export default function Portfolio() {
               ))}
             </AnimatePresence>
           </motion.div>
+
           {projects.length > 3 && (
             <motion.div
               className="flex justify-center mt-8"
               variants={fadeInUp}
             >
               <motion.button
-                onClick={() => setShowAllProjects(!showAllProjects)}
-                className="text-sm sm:text-md opacity-60 cursor-pointer underline underline-offset-4 font-medium transition-all duration-300 hover:opacity-80"
+                ref={showMoreBtnRef}
+                onClick={handleToggleProjects}
+                className="relative text-sm sm:text-md opacity-60 cursor-pointer font-medium transition-all duration-300 hover:opacity-90 px-4 py-2 group"
                 whileHover="hover"
                 whileTap="tap"
                 variants={buttonVariants}
               >
-                {showAllProjects ? "Show less projects" : "Show more projects"}
+                <span className="relative inline-flex items-center gap-1.5">
+                  {showAllProjects ? "Show less projects" : "Show more projects"}
+                  <motion.svg
+                    width="14"
+                    height="14"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="2.5"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    animate={{ rotate: showAllProjects ? 180 : 0 }}
+                    transition={{ duration: 0.3, ease: easeInOut }}
+                  >
+                    <polyline points="6 9 12 15 18 9" />
+                  </motion.svg>
+                  <span className="absolute -bottom-0.5 left-0 h-px w-0 bg-current group-hover:w-[calc(100%-20px)] transition-all duration-300 ease-out" />
+                </span>
               </motion.button>
             </motion.div>
           )}
