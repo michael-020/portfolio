@@ -1,7 +1,7 @@
 export const projects = [
   {
     title: "Zap",
-    description: "AI-powered SaaS that generates structured React codebases from prompts with tier-based access control and Razorpay payment integration.",
+    description: "AI-powered SaaS that generates structured React codebases and clones static or dynamic websites with subscription-based access control and secure Razorpay integration.",
     tech: ["TypeScript", "Next.js", "Zustand", "Tailwind CSS", "Prisma", "PostgreSQL", "Razorpay"],
     link: "zap.michaelhosamani.com",
     github: "https://github.com/michael-020/Zap",
