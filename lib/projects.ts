@@ -56,5 +56,15 @@ export const projects = [
     github: "https://github.com/michael-020/coders-cafe",
     image: "/images/projects/coders-cafe.png",
     imageAlt: "Coders Cafe responsive landing page with modern design and animations"
+  },
+  {
+    title: "Taskly",
+    description:
+      "Built a full-stack task management application with secure JWT authentication, CRUD operations, filtering, search, and pagination. Implemented Docker-based setup for containerized deployment and handled edge cases like pagination consistency after task updates.",
+    tech: ["TypeScript", "React", "Node.js", "Express", "MongoDB", "Zustand", "Tailwind CSS", "Docker"],
+    link: "taskly.michaelhosamani.com",
+    github: "https://github.com/michael-020/task-manager",
+    image: "/images/projects/taskly.png",
+    imageAlt: "Taskly task management dashboard with filtering, search, and pagination"
   }
 ]
