@@ -4,6 +4,7 @@ import { GeistSans } from "geist/font/sans"
 import { GeistMono } from "geist/font/mono"
 import { ThemeProvider } from "@/components/theme-provider"
 import "./globals.css"
+import { Navbar } from "@/components/navbar"
 
 export const metadata: Metadata = {
   title: "Michael Hosamani - Full Stack Developer",
@@ -31,6 +32,7 @@ export default function RootLayout({
       </head>
       <body>
         <ThemeProvider attribute="class" defaultTheme="system" enableSystem={true} disableTransitionOnChange={false}>
+          <Navbar />
           {children}
         </ThemeProvider>
       </body>
