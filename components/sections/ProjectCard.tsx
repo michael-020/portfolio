@@ -31,7 +31,7 @@ function GhostBtn({ href, children }: { href: string; children: React.ReactNode 
       target="_blank"
       rel="noreferrer"
       onClick={(e) => e.stopPropagation()}
-      className="inline-flex items-center gap-1.5 rounded-full px-3 py-1.5 text-[11px] font-semibold
+      className="inline-flex items-center gap-1 rounded-full px-2 py-1 text-[9px] font-semibold
         bg-white/10 border border-white/25 text-white backdrop-blur-sm
         hover:bg-white/26 hover:border-white/50 transition-all duration-200 whitespace-nowrap"
     >
@@ -50,25 +50,25 @@ export function ProjectCard({
   delay?: number
 }) {
   const heightClass =
-    size === "lg" ? "h-[360px] sm:h-[420px]"
-    : size === "md" ? "h-[260px] sm:h-[310px]"
-    : "h-[200px] sm:h-[230px]"
+    size === "lg" ? "h-[240px] sm:h-[280px]"
+    : size === "md" ? "h-[180px] sm:h-[200px]"
+    : "h-[160px] sm:h-[180px]"
 
   const titleSize =
-    size === "lg" ? "text-[clamp(22px,4vw,30px)]"
-    : size === "md" ? "text-[clamp(18px,3vw,24px)]"
-    : "text-[18px]"
+    size === "lg" ? "text-[clamp(18px,3vw,24px)]"
+    : size === "md" ? "text-[clamp(14px,2.5vw,18px)]"
+    : "text-[14px]"
 
-  const maxTags = size === "lg" ? 6 : size === "md" ? 5 : 3
+  const maxTags = size === "lg" ? 4 : size === "md" ? 3 : 2
 
   return (
     <motion.div
-      className="group relative block rounded-2xl overflow-hidden shadow-md dark:shadow-neutral-800 bg-muted w-full cursor-pointer"
-      initial={{ opacity: 0, y: 28 }}
+      className="group relative block rounded-lg overflow-hidden shadow-sm dark:shadow-neutral-800 bg-muted w-full cursor-pointer"
+      initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
-      exit={{ opacity: 0, y: 16 }}
-      transition={{ duration: 0.45, delay }}
-      whileHover={{ y: -4 }}
+      exit={{ opacity: 0, y: 12 }}
+      transition={{ duration: 0.4, delay }}
+      whileHover={{ y: -2 }}
       onClick={() => window.open(`https://${project.link}`, '_blank')}
     >
       {/* full-bleed image */}
@@ -87,23 +87,23 @@ export function ProjectCard({
         <div className="absolute inset-0 bg-gradient-to-t from-black/88 via-black/30 to-transparent pointer-events-none" />
 
         {/* overlay content */}
-        <div className="absolute inset-0 flex flex-col justify-end px-5 pb-5 gap-2.5">
+        <div className="absolute inset-0 flex flex-col justify-end px-3 pb-3 gap-2">
 
           {/* title + action buttons */}
-          <div className="flex items-end justify-between gap-3">
+          <div className="flex items-end justify-between gap-2">
             <h3
               className={`font-bold text-white leading-tight drop-shadow tracking-tight ${titleSize}`}
               style={{ letterSpacing: "-0.02em" }}
             >
               {project.title}
             </h3>
-            <div className="flex gap-2 flex-shrink-0">
+            <div className="flex gap-1.5 flex-shrink-0">
               <GhostBtn href={`https://${project.link}`}>
-                <ArrowUpRight className="w-3 h-3" />
+                <ArrowUpRight className="w-2.5 h-2.5" />
                 Live
               </GhostBtn>
               <GhostBtn href={project.github}>
-                <Github className="w-3 h-3" />
+                <Github className="w-2.5 h-2.5" />
                 Code
               </GhostBtn>
             </div>
@@ -111,25 +111,25 @@ export function ProjectCard({
 
           {/* description — only lg + md */}
           {size !== "sm" && (
-            <p className="text-[12.5px] text-white/70 leading-relaxed max-w-[92%] line-clamp-2">
+            <p className="text-[11px] text-white/70 leading-relaxed max-w-[92%] line-clamp-1">
               {project.description}
             </p>
           )}
 
           {/* tags + live */}
           <div className="flex items-center justify-between gap-2 flex-wrap">
-            <div className="flex gap-1.5 flex-wrap">
+            <div className="flex gap-1 flex-wrap">
               {project.tech.slice(0, maxTags).map((t, i) => (
                 <span
                   key={i}
-                  className="text-[10px] font-medium px-2 py-0.5 rounded-full
+                  className="text-[9px] font-medium px-1.5 py-0.5 rounded-full
                     bg-white/10 border border-white/20 text-white/75"
                 >
                   {t}
                 </span>
               ))}
               {project.tech.length > maxTags && (
-                <span className="text-[10px] text-white/40 self-center">
+                <span className="text-[9px] text-white/40 self-center">
                   +{project.tech.length - maxTags}
                 </span>
               )}

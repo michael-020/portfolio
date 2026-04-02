@@ -5,7 +5,7 @@ import { motion } from "framer-motion"
 export function Footer() {
   return (
     <motion.footer
-      className="text-center py-6 sm:py-8 pb-0 border-t text-sm sm:text-base"
+      className="text-center py-4 text-xs text-muted-foreground border-t"
       initial={{ opacity: 0 }}
       whileInView={{ opacity: 1 }}
       viewport={{ once: true }}

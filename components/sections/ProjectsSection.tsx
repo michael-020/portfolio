@@ -6,12 +6,6 @@ import { projects } from "@/lib/projects"
 import { ProjectCard } from "./ProjectCard"
 import { useState, useRef } from "react"
 
-const fadeInUp = {
-  initial: { opacity: 0, y: 60 },
-  animate: { opacity: 1, y: 0 },
-  transition: { duration: 0.6 },
-}
-
 type CardSize = "lg" | "md" | "sm"
 
 /* ─── derive layout rows from project list ─────────────────
@@ -78,85 +72,66 @@ export function ProjectsSection() {
   }
 
   return (
-    <>
-      <div id="projects" className="relative -top-20 sm:-top-40" />
-      <motion.section
-        className="mb-16 sm:mb-20"
-        initial="initial"
-        whileInView="animate"
-        viewport={{ once: true }}
-      >
-        <motion.h2
-          className="text-2xl sm:text-3xl font-bold mb-8 flex items-center gap-2 sm:gap-3"
-          variants={fadeInUp}
-        >
-          <svg className="w-6 h-6 sm:w-8 sm:h-8 text-primary" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-            <path d="M21 21H3V3h9V1H3a2 2 0 0 0-2 2v18a2 2 0 0 0 2 2h18a2 2 0 0 0 2-2v-9h-2v9z" />
-            <path d="M3 3h8v8H3z" />
-            <path d="M13 13h8v8h-8z" />
-            <path d="M17 1v4m-2-2h4" />
-          </svg>
-          Projects
-        </motion.h2>
+    <div>
+      <h2 className="text-sm font-bold mb-6 uppercase tracking-wider">Projects</h2>
 
-        {/* dynamic layout grid */}
-        <div ref={listRef} className="flex flex-col gap-3.5">
-          <AnimatePresence>
-            {visibleRows.map((row, rowIdx) => {
-              const baseDelay = rowIdx * 0.06
+      {/* dynamic layout grid */}
+      <div ref={listRef} className="flex flex-col gap-3">
+        <AnimatePresence>
+          {visibleRows.map((row, rowIdx) => {
+            const baseDelay = rowIdx * 0.06
 
-              if (row.type === "single") {
-                return (
-                  <ProjectCard
-                    key={row.project.title}
-                    project={row.project}
-                    size={row.size}
-                    delay={baseDelay}
-                  />
-                )
-              }
-
-              // pair row
+            if (row.type === "single") {
               return (
-                <motion.div
-                  key={`pair-${row.projects[0].title}`}
-                  className="grid grid-cols-2 gap-3.5"
-                  initial={{ opacity: 0 }}
-                  animate={{ opacity: 1 }}
-                  exit={{ opacity: 0 }}
-                  transition={{ duration: 0.3, delay: baseDelay }}
-                >
-                  <ProjectCard project={row.projects[0]} size="sm" delay={baseDelay} />
-                  <ProjectCard project={row.projects[1]} size="sm" delay={baseDelay + 0.04} />
-                </motion.div>
+                <ProjectCard
+                  key={row.project.title}
+                  project={row.project}
+                  size={row.size}
+                  delay={baseDelay}
+                />
               )
-            })}
-          </AnimatePresence>
-        </div>
+            }
 
-        {/* show more / less */}
-        {hasMore && (
-          <motion.div className="flex justify-center mt-7" variants={fadeInUp}>
-            <motion.button
-              onClick={handleToggle}
-              className="inline-flex items-center gap-2 rounded-full border border-border bg-background
-                px-5 py-2 text-sm font-medium text-muted-foreground
-                hover:border-foreground/25 hover:text-foreground hover:bg-accent
-                transition-all duration-200"
-              whileHover={{ scale: 1.03 }}
-              whileTap={{ scale: 0.97 }}
-            >
-              {showAllProjects ? "Show less" : "View more projects"}
+            // pair row
+            return (
               <motion.div
-                animate={{ rotate: showAllProjects ? 180 : 0 }}
-                transition={{ duration: 0.3 }}
+                key={`pair-${row.projects[0].title}`}
+                className="grid grid-cols-2 gap-3"
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                exit={{ opacity: 0 }}
+                transition={{ duration: 0.3, delay: baseDelay }}
               >
-                <ChevronDown className="w-4 h-4" />
+                <ProjectCard project={row.projects[0]} size="sm" delay={baseDelay} />
+                <ProjectCard project={row.projects[1]} size="sm" delay={baseDelay + 0.04} />
               </motion.div>
-            </motion.button>
-          </motion.div>
-        )}
-      </motion.section>
-    </>
+            )
+          })}
+        </AnimatePresence>
+      </div>
+
+      {/* show more / less */}
+      {hasMore && (
+        <div className="flex justify-center mt-6">
+          <motion.button
+            onClick={handleToggle}
+            className="inline-flex items-center gap-2 rounded-full border border-border bg-background
+              px-4 py-1.5 text-xs font-medium text-muted-foreground
+              hover:border-foreground/25 hover:text-foreground hover:bg-accent
+              transition-all duration-200"
+            whileHover={{ scale: 1.03 }}
+            whileTap={{ scale: 0.97 }}
+          >
+            {showAllProjects ? "Show less" : "View more"}
+            <motion.div
+              animate={{ rotate: showAllProjects ? 180 : 0 }}
+              transition={{ duration: 0.3 }}
+            >
+              <ChevronDown className="w-3 h-3" />
+            </motion.div>
+          </motion.button>
+        </div>
+      )}
+    </div>
   )
 }

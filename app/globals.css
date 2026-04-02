@@ -1,5 +1,6 @@
 @import 'tailwindcss';
 @import 'tw-animate-css';
+@import "react-activity-calendar/tooltips.css";
 
 @custom-variant dark (&:is(.dark *));
 
@@ -127,4 +128,20 @@
   body {
     @apply bg-background text-foreground;
   }
+}
+
+.react-activity-calendar__tooltip {
+  width: max-content;
+  max-width: calc(100vw - 20px);
+  padding: 4px 8px;
+  border-radius: 6px;
+  font-size: 12px;
+
+  background-color: hsl(var(--popover));
+  color: hsl(var(--popover-foreground));
+  border: 1px solid hsl(var(--border));
+}
+
+.react-activity-calendar__tooltip-arrow {
+  fill: hsl(var(--popover));
 }
