@@ -86,45 +86,53 @@ export function ProjectsSection() {
   const visible = showAll ? projects : projects.slice(0, DEFAULT_VISIBLE)
 
   return (
-    <div className="grid border-b border-border" style={{ gridTemplateColumns: "1fr minmax(0, 720px) 1fr" }}>
-      {/* Left rail */}
-      <div className="border-r border-border" />
-
-      {/* Center content */}
-      <div className="relative px-6 py-10">
-        <div id="projects" className="absolute -top-10" />
-        <h2 className="section-heading">Projects</h2>
-
-        <AnimatePresence>
-          <div className="grid grid-cols-2 gap-3">
-            {visible.map((project) => (
-              <ProjectCard key={project.title} project={project} />
-            ))}
-          </div>
-        </AnimatePresence>
-
-        {projects.length > DEFAULT_VISIBLE && (
-          <div className="mt-6 flex justify-center">
-            <motion.button
-              onClick={() => setShowAll(!showAll)}
-              className="inline-flex items-center gap-2 rounded-full border border-border bg-background px-5 py-1.5 text-xs text-muted-foreground hover:border-foreground/30 hover:text-foreground transition-colors"
-              whileHover={{ scale: 1.02 }}
-              whileTap={{ scale: 0.98 }}
-            >
-              {showAll ? "Show less" : "View more projects"}
-              <motion.span
-                animate={{ rotate: showAll ? 180 : 0 }}
-                transition={{ duration: 0.25 }}
-              >
-                <ChevronDown className="h-3.5 w-3.5" />
-              </motion.span>
-            </motion.button>
-          </div>
-        )}
+    <>
+      {/* Title row */}
+      <div className="grid border-b border-border" style={{ gridTemplateColumns: "1fr minmax(0, 720px) 1fr" }}>
+        <div className="border-r border-border" />
+        <div className="relative px-6 translate-y-2.5">
+          <h2 className="section-heading">Projects</h2>
+        </div>
+        <div className="border-l border-border" />
       </div>
 
-      {/* Right rail */}
-      <div className="border-l border-border" />
-    </div>
+      {/* Content row */}
+      <div className="grid border-b border-border" style={{ gridTemplateColumns: "1fr minmax(0, 720px) 1fr" }}>
+        <div className="border-r border-border" />
+
+        <div className="relative px-6 py-10">
+          <div id="projects" className="absolute -top-10" />
+
+          <AnimatePresence>
+            <div className="grid grid-cols-2 gap-3">
+              {visible.map((project) => (
+                <ProjectCard key={project.title} project={project} />
+              ))}
+            </div>
+          </AnimatePresence>
+
+          {projects.length > DEFAULT_VISIBLE && (
+            <div className="mt-6 flex justify-center">
+              <motion.button
+                onClick={() => setShowAll(!showAll)}
+                className="inline-flex items-center gap-2 rounded-full border border-border bg-background px-5 py-1.5 text-xs text-muted-foreground hover:border-foreground/30 hover:text-foreground transition-colors"
+                whileHover={{ scale: 1.02 }}
+                whileTap={{ scale: 0.98 }}
+              >
+                {showAll ? "Show less" : "View more projects"}
+                <motion.span
+                  animate={{ rotate: showAll ? 180 : 0 }}
+                  transition={{ duration: 0.25 }}
+                >
+                  <ChevronDown className="h-3.5 w-3.5" />
+                </motion.span>
+              </motion.button>
+            </div>
+          )}
+        </div>
+
+        <div className="border-l border-border" />
+      </div>
+    </>
   )
 }

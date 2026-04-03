@@ -105,24 +105,32 @@ function ExperienceCard({ item }: { item: ExperienceItem }) {
 
 export function ExperienceSection() {
   return (
-    <div className="grid border-b border-border" style={{ gridTemplateColumns: "1fr minmax(0, 720px) 1fr" }}>
-      {/* Left rail */}
-      <div className="border-r border-border" />
-
-      {/* Center content */}
-      <div className="relative px-6 py-10">
-        <div id="experience" className="absolute -top-10" />
-        <h2 className="section-heading">Experience</h2>
-
-        <div className="flex flex-col">
-          {experiences.map((exp) => (
-            <ExperienceCard key={exp.role} item={exp} />
-          ))}
+    <>
+      {/* Title row */}
+      <div className="grid border-b border-border" style={{ gridTemplateColumns: "1fr minmax(0, 720px) 1fr" }}>
+        <div className="border-r border-border" />
+        <div className="relative px-6 translate-y-2.5">
+          <h2 className="section-heading">Experience</h2>
         </div>
+        <div className="border-l border-border" />
       </div>
 
-      {/* Right rail */}
-      <div className="border-l border-border" />
-    </div>
+      {/* Content row */}
+      <div className="grid border-b border-border" style={{ gridTemplateColumns: "1fr minmax(0, 720px) 1fr" }}>
+        <div className="border-r border-border" />
+
+        <div className="relative px-6 py-10">
+          <div id="experience" className="absolute -top-10" />
+
+          <div className="flex flex-col">
+            {experiences.map((exp) => (
+              <ExperienceCard key={exp.role} item={exp} />
+            ))}
+          </div>
+        </div>
+
+        <div className="border-l border-border" />
+      </div>
+    </>
   )
 }

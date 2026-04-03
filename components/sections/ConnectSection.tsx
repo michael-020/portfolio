@@ -49,33 +49,41 @@ const links = [
 
 export function ConnectSection() {
   return (
-    <div className="grid border-b border-border" style={{ gridTemplateColumns: "1fr minmax(0, 720px) 1fr" }}>
-      {/* Left rail */}
-      <div className="border-r border-border" />
-
-      {/* Center content */}
-      <div className="relative px-6 py-10">
-        <div id="connect" className="absolute -top-10" />
-        <h2 className="section-heading">Connect</h2>
-
-        <div className="flex flex-wrap gap-2">
-          {links.map((link) => (
-            <a
-              key={link.label}
-              href={link.href}
-              target={link.href.startsWith("mailto") ? undefined : "_blank"}
-              rel="noreferrer"
-              className="flex items-center gap-2 rounded-md border border-border bg-background px-3 py-1.5 text-xs text-foreground transition-colors hover:border-foreground/30 hover:bg-muted"
-            >
-              {link.icon}
-              {link.label}
-            </a>
-          ))}
+    <>
+      {/* Title row */}
+      <div className="grid border-b border-border" style={{ gridTemplateColumns: "1fr minmax(0, 720px) 1fr" }}>
+        <div className="border-r border-border" />
+        <div className="relative px-6 translate-y-2.5">
+          <h2 className="section-heading">Connect</h2>
         </div>
+        <div className="border-l border-border" />
       </div>
 
-      {/* Right rail */}
-      <div className="border-l border-border" />
-    </div>
+      {/* Content row */}
+      <div className="grid border-b border-border" style={{ gridTemplateColumns: "1fr minmax(0, 720px) 1fr" }}>
+        <div className="border-r border-border" />
+
+        <div className="relative px-6 py-10">
+          <div id="connect" className="absolute -top-10" />
+
+          <div className="flex flex-wrap gap-2">
+            {links.map((link) => (
+              <a
+                key={link.label}
+                href={link.href}
+                target={link.href.startsWith("mailto") ? undefined : "_blank"}
+                rel="noreferrer"
+                className="flex items-center gap-2 rounded-md border border-border bg-background px-3 py-1.5 text-xs text-foreground transition-colors hover:border-foreground/30 hover:bg-muted"
+              >
+                {link.icon}
+                {link.label}
+              </a>
+            ))}
+          </div>
+        </div>
+
+        <div className="border-l border-border" />
+      </div>
+    </>
   )
 }

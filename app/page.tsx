@@ -14,13 +14,11 @@ import { SectionSeparator } from "@/components/sections/SectionSeparator"
 export default function Portfolio() {
   return (
     <div className="min-h-screen bg-background font-sans">
-      <Navbar />
 
       {/* Sections are stacked vertically, each with its own 3-col layout */}
       <main>
 
         <HeroGrid />
-        <SectionSeparator />
         <ProfileCard />
         <SectionSeparator />
         <AboutSection />

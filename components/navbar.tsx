@@ -42,7 +42,7 @@ export function Navbar() {
         <div className="border-r border-border" />
 
         {/* Nav inner */}
-        <div className="flex h-10 items-center justify-between px-6">
+        <div className="flex h-[3.3rem] items-center justify-between px-6">
           {/* Logo */}
           <span className="text-sm font-semibold tracking-wide text-foreground">
             MH

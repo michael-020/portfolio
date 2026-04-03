@@ -18,50 +18,57 @@ export function AboutSection() {
   const [expanded, setExpanded] = useState(false)
 
   return (
-    <div className="grid border-b border-border" style={{ gridTemplateColumns: "1fr minmax(0, 720px) 1fr" }}>
-      {/* Left rail */}
-      <div className="border-r border-border" />
-
-      {/* Center content */}
-      <div className="relative px-6 py-10">
-        <h2 className="section-heading">About</h2>
-
-        <ul className="space-y-3">
-          {bullets.map((text, i) => (
-            <li key={i} className="flex items-start gap-3">
-              <span className="mt-[7px] h-1.5 w-1.5 flex-shrink-0 rounded-full border border-border" />
-              <p className="text-sm leading-relaxed text-foreground">{text}</p>
-            </li>
-          ))}
-
-          <AnimatePresence>
-            {expanded &&
-              extraBullets.map((text, i) => (
-                <motion.li
-                  key={`extra-${i}`}
-                  className="flex items-start gap-3"
-                  initial={{ opacity: 0, height: 0 }}
-                  animate={{ opacity: 1, height: "auto" }}
-                  exit={{ opacity: 0, height: 0 }}
-                  transition={{ duration: 0.35 }}
-                >
-                  <span className="mt-[7px] h-1.5 w-1.5 flex-shrink-0 rounded-full border border-border" />
-                  <p className="text-sm leading-relaxed text-foreground">{text}</p>
-                </motion.li>
-              ))}
-          </AnimatePresence>
-        </ul>
-
-        <button
-          onClick={() => setExpanded(!expanded)}
-          className="mt-4 text-xs text-muted-foreground underline underline-offset-4 hover:text-foreground transition-colors"
-        >
-          {expanded ? "See less" : "See more"}
-        </button>
+    <>
+      {/* Title row */}
+      <div className="grid border-b border-border" style={{ gridTemplateColumns: "1fr minmax(0, 720px) 1fr" }}>
+        <div className="border-r border-border" />
+        <div className="relative px-6 translate-y-2.5">
+          <h2 className="section-heading">About</h2>
+        </div>
+        <div className="border-l border-border" />
       </div>
 
-      {/* Right rail */}
-      <div className="border-l border-border" />
-    </div>
+      {/* Content row */}
+      <div className="grid border-b border-border" style={{ gridTemplateColumns: "1fr minmax(0, 720px) 1fr" }}>
+        <div className="border-r border-border" />
+
+        <div className="relative px-6 py-10">
+          <ul className="space-y-3">
+            {bullets.map((text, i) => (
+              <li key={i} className="flex items-start gap-3">
+                <span className="mt-[7px] h-1.5 w-1.5 flex-shrink-0 rounded-full border border-border" />
+                <p className="text-sm leading-relaxed text-foreground">{text}</p>
+              </li>
+            ))}
+
+            <AnimatePresence>
+              {expanded &&
+                extraBullets.map((text, i) => (
+                  <motion.li
+                    key={`extra-${i}`}
+                    className="flex items-start gap-3"
+                    initial={{ opacity: 0, height: 0 }}
+                    animate={{ opacity: 1, height: "auto" }}
+                    exit={{ opacity: 0, height: 0 }}
+                    transition={{ duration: 0.35 }}
+                  >
+                    <span className="mt-[7px] h-1.5 w-1.5 flex-shrink-0 rounded-full border border-border" />
+                    <p className="text-sm leading-relaxed text-foreground">{text}</p>
+                  </motion.li>
+                ))}
+            </AnimatePresence>
+          </ul>
+
+          <button
+            onClick={() => setExpanded(!expanded)}
+            className="mt-4 text-xs text-muted-foreground underline underline-offset-4 hover:text-foreground transition-colors"
+          >
+            {expanded ? "See less" : "See more"}
+          </button>
+        </div>
+
+        <div className="border-l border-border" />
+      </div>
+    </>
   )
 }
