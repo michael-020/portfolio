@@ -1,6 +1,6 @@
 "use client"
 
-import { useState } from "react"
+import { useState, useEffect } from "react"
 import { motion } from "framer-motion"
 import { Sun, Moon, Search } from "lucide-react"
 import { useTheme } from "next-themes"
@@ -14,6 +14,11 @@ const navLinks = [
 export function Navbar() {
   const { theme, setTheme } = useTheme()
   const [active, setActive] = useState("Home")
+  const [mounted, setMounted] = useState(false)
+
+  useEffect(() => {
+    setMounted(true)
+  }, [])
 
   const scrollTo = (href: string, label: string) => {
     setActive(label)
@@ -71,16 +76,18 @@ export function Navbar() {
               <span>⌘ K</span>
             </button>
 
-            <button
-              onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
-              className="flex h-6 w-6 items-center justify-center rounded-full border border-border text-muted-foreground hover:text-foreground transition-colors"
-            >
-              {theme === "dark" ? (
-                <Sun className="h-3 w-3" />
-              ) : (
-                <Moon className="h-3 w-3" />
-              )}
-            </button>
+            {mounted && (
+              <button
+                onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
+                className="flex h-6 w-6 items-center justify-center rounded-full border border-border text-muted-foreground hover:text-foreground transition-colors"
+              >
+                {theme === "dark" ? (
+                  <Sun className="h-3 w-3" />
+                ) : (
+                  <Moon className="h-3 w-3" />
+                )}
+              </button>
+            )}
           </div>
         </div>
 

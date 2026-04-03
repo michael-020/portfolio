@@ -208,3 +208,26 @@
 .section-heading {
   @apply mb-5 text-lg font-medium text-foreground;
 }
+
+/* ─── Section separator diagonals ─────────────────── */
+.separator-diagonals {
+  background-image: repeating-linear-gradient(
+    45deg,
+    oklch(0.922 0 0),
+    oklch(0.922 0 0) 0.5px,
+    transparent 1px,
+    transparent 10px
+  );
+}
+
+.dark .separator-diagonals {
+  background-image: repeating-linear-gradient(
+    45deg,
+    oklch(0.269 0 0),
+    oklch(0.269 0 0) 0.5px,
+    transparent 1px,
+    transparent 10px
+  );
+}
+
+

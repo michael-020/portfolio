@@ -9,6 +9,7 @@ import { Footer } from "@/components/sections/Footer"
 import { Navbar } from "@/components/navbar"
 import { HeroGrid } from "@/components/sections/HeroGrid"
 import { GitHubActivity } from "@/components/sections/GitHubActivity"
+import { SectionSeparator } from "@/components/sections/SectionSeparator"
 
 export default function Portfolio() {
   return (
@@ -19,12 +20,19 @@ export default function Portfolio() {
       <main>
 
         <HeroGrid />
+        <SectionSeparator />
         <ProfileCard />
+        <SectionSeparator />
         <AboutSection />
+        <SectionSeparator />
         <ConnectSection />
+        <SectionSeparator />
         <GitHubActivity />
+        <SectionSeparator />
         <ExperienceSection />
+        <SectionSeparator />
         <ProjectsSection />
+        <SectionSeparator />
         <Footer />
 
       </main>
