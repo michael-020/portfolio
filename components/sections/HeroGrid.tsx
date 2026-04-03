@@ -6,13 +6,26 @@
  */
 export function HeroGrid() {
   return (
-    <div
-      className="col-span-full grid border-b border-border"
-      style={{ gridTemplateColumns: "1fr minmax(0, 720px) 1fr" }}
-    >
-      <div className="dot-grid h-28 border-r border-border" />
-      <div className="dot-grid h-28" />
-      <div className="dot-grid h-28 border-l border-border" />
+    <div className="grid border-b relative h-full pt-10" style={{ gridTemplateColumns: "1fr minmax(0, 720px) 1fr" }}>
+
+      {/* Left rail */}
+      <div className="border-r border-border relative z-10" />
+
+      {/* Center content with dot grid */}
+      <div className="h-full relative z-0 p-5" >
+        <DotGrid />
+      </div>
+
+      {/* Right rail */}
+      <div className="border-l border-border  relative z-10" />
     </div>
   )
 }
+
+const DotGrid = () => {
+  return (
+    <div 
+      className="hero-dot-grid w-full h-24"
+    />
+  );
+};

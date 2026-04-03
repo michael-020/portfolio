@@ -230,4 +230,14 @@
   );
 }
 
+.hero-dot-grid {
+  background-image: radial-gradient(oklch(0.922 0 0) 1.5px, transparent 1px);
+  background-size: 10px 10px;
+}
+
+.dark .hero-dot-grid {
+  background-image: radial-gradient(oklch(0.269 0 0) 1.5px, transparent 1px);
+  background-size: 10px 10px;
+}
+
 
