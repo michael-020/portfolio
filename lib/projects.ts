@@ -1,70 +1,79 @@
 export const projects = [
   {
     title: "Zap",
-    description: "AI-powered SaaS that generates structured React codebases and clones static or dynamic websites with subscription-based access control and secure Razorpay integration.",
-    tech: ["TypeScript", "Next.js", "Zustand", "Tailwind CSS", "Prisma", "PostgreSQL", "Razorpay"],
-    link: "zap.michaelhosamani.com",
-    github: "https://github.com/michael-020/Zap",
+    date: "",
+    description:
+      "AI-powered SaaS that generates structured React codebases and clones static or dynamic websites with subscription-based access control and secure Razorpay integration.",
+    tags: ["TypeScript", "Next.js", "Zustand", "Tailwind CSS", "Prisma", "PostgreSQL", "Razorpay"],
+    gradient: "",
     image: "/images/projects/zap.png",
-    imageAlt: "Zap AI website generator converting prompts into React codebase with tier-based SaaS system"
+    liveUrl: "zap.michaelhosamani.com",
+    githubUrl: "https://github.com/michael-020/Zap",
   },
   {
     title: "Collabodraw",
+    date: "",
     description:
       "Built a real-time collaborative drawing app from scratch with custom canvas logic, 20% faster load/render times, and integrated AI-powered drawing generation for creative assistance.",
-    tech: ["TypeScript", "Next.js", "Express", "WebSockets", "Zustand", "Tailwind CSS", "Prisma", "PostgreSQL"],
-    link: "collabodraw.michaelhosamani.com",
-    github: "https://github.com/michael-020/CollaboDraw",
+    tags: ["TypeScript", "Next.js", "Express", "WebSockets", "Zustand", "Tailwind CSS", "Prisma", "PostgreSQL"],
+    gradient: "",
     image: "/images/projects/collabodraw.png",
-    imageAlt: "Collabodraw collaborative drawing interface with real-time canvas and AI tools"
+    liveUrl: "collabodraw.michaelhosamani.com",
+    githubUrl: "https://github.com/michael-020/CollaboDraw",
   },
   {
     title: "CacheUpp",
+    date: "",
     description:
       "Developed feature-rich social platform with posts, likes, comments, real-time chat, friend system, and forums, implementing Google OAuth 2.0 from scratch.",
-    tech: ["TypeScript", "MERN", "Pgvector", "WebSockets", "Zustand", "MongoDB"],
-    link: "cacheupp.com",
-    github: "https://github.com/michael-020/CacheUp",
+    tags: ["TypeScript", "MERN", "Pgvector", "WebSockets", "Zustand", "MongoDB"],
+    gradient: "",
     image: "/images/projects/cacheupp.png",
-    imageAlt: "CacheUpp social platform showing posts feed and real-time chat interface"
+    liveUrl: "cacheupp.com",
+    githubUrl: "https://github.com/michael-020/CacheUp",
   },
   {
     title: "ReadmeX",
+    date: "",
     description:
       "Designed and developed an AI-powered tool to generate professional, customizable README files with live Markdown preview and formatting support.",
-    tech: ["TypeScript", "Next.js", "Framer Motion", "Zustand", "Prisma", "PostgreSQL"],
-    link: "readmex.michaelhosamani.com",
-    github: "https://github.com/michael-020/Readme-generator",
+    tags: ["TypeScript", "Next.js", "Framer Motion", "Zustand", "Prisma", "PostgreSQL"],
+    gradient: "",
     image: "/images/projects/readmex.png",
-    imageAlt: "ReadmeX AI-powered README generator with live preview and customization options"
+    liveUrl: "readmex.michaelhosamani.com",
+    githubUrl: "https://github.com/michael-020/Readme-generator",
   },
   {
     title: "DevTalk",
+    date: "",
     description:
       "Created real-time chat application with WebSockets, TypeScript, and Framer Motion, implementing robust authentication from scratch using cookies and bcrypt.",
-    tech: ["TypeScript", "MERN Stack", "WebSockets", "Zustand", "MongoDB"],
-    link: "devtalk.michaelhosamani.com",
-    github: "https://github.com/michael-020/DevTalk",
+    tags: ["TypeScript", "MERN Stack", "WebSockets", "Zustand", "MongoDB"],
+    gradient: "",
     image: "/images/projects/devtalk.png",
-    imageAlt: "DevTalk real-time chat application with modern messaging interface"
+    liveUrl: "devtalk.michaelhosamani.com",
+    githubUrl: "https://github.com/michael-020/DevTalk",
   },
   {
     title: "Coders-cafe",
-    description: "Responsive landing page built with Next.js, Tailwind, and Framer Motion for clean UI and smooth animations.",
-    tech: ["TypeScript", "Next.js", "Framer-motion"],
-    link: "coderscafe.michaelhosamani.com",
-    github: "https://github.com/michael-020/coders-cafe",
+    date: "",
+    description:
+      "Responsive landing page built with Next.js, Tailwind, and Framer Motion for clean UI and smooth animations.",
+    tags: ["TypeScript", "Next.js", "Framer-motion"],
+    gradient: "",
     image: "/images/projects/coders-cafe.png",
-    imageAlt: "Coders Cafe responsive landing page with modern design and animations"
+    liveUrl: "coderscafe.michaelhosamani.com",
+    githubUrl: "https://github.com/michael-020/coders-cafe",
   },
   {
     title: "Taskly",
+    date: "",
     description:
       "Built a full-stack task management application with secure JWT authentication, CRUD operations, filtering, search, and pagination. Implemented Docker-based setup for containerized deployment and handled edge cases like pagination consistency after task updates.",
-    tech: ["TypeScript", "React", "Node.js", "Express", "MongoDB", "Zustand", "Tailwind CSS", "Docker"],
-    link: "taskly.michaelhosamani.com",
-    github: "https://github.com/michael-020/task-manager",
+    tags: ["TypeScript", "React", "Node.js", "Express", "MongoDB", "Zustand", "Tailwind CSS", "Docker"],
+    gradient: "",
     image: "/images/projects/taskly.png",
-    imageAlt: "Taskly task management dashboard with filtering, search, and pagination"
-  }
+    liveUrl: "taskly.michaelhosamani.com",
+    githubUrl: "https://github.com/michael-020/task-manager",
+  },
 ]

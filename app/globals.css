@@ -145,3 +145,66 @@
 .react-activity-calendar__tooltip-arrow {
   fill: hsl(var(--popover));
 }
+
+.dot-grid {
+  background-image: radial-gradient(
+    circle,
+    hsl(var(--border)) 1px,
+    transparent 1px
+  );
+  background-size: 18px 18px;
+}
+ 
+/* ─── Rail columns ────────────────────────────────────
+   .rail-left  → right border
+   .rail-right → left border
+   Both show corner crosses via pseudo-elements          */
+.rail {
+  position: relative;
+}
+ 
+.rail-left {
+  border-right: 1px solid hsl(var(--border));
+}
+ 
+.rail-right {
+  border-left: 1px solid hsl(var(--border));
+}
+ 
+/* Corner crosses — appear at top-left, top-right,
+   bottom-left, bottom-right of each rail div          */
+.rail::before,
+.rail::after {
+  content: "";
+  position: absolute;
+  width: 9px;
+  height: 9px;
+  /* The cross itself — two thin lines */
+  background-image:
+    linear-gradient(hsl(var(--border) / 0.7), hsl(var(--border) / 0.7)),
+    linear-gradient(hsl(var(--border) / 0.7), hsl(var(--border) / 0.7));
+  background-size: 1px 100%, 100% 1px;
+  background-repeat: no-repeat;
+  background-position: center center, center center;
+  z-index: 1;
+}
+ 
+/* Top corners */
+.rail::before {
+  top: -4.5px;
+}
+ 
+/* Bottom corners */
+.rail::after {
+  bottom: -4.5px;
+}
+ 
+.rail-left::before  { left:  -4.5px; }
+.rail-left::after   { left:  -4.5px; }
+.rail-right::before { right: -4.5px; }
+.rail-right::after  { right: -4.5px; }
+ 
+/* ─── Section heading ─────────────────────────────── */
+.section-heading {
+  @apply mb-5 text-lg font-medium text-foreground;
+}

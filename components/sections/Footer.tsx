@@ -1,17 +1,21 @@
 "use client"
 
-import { motion } from "framer-motion"
-
 export function Footer() {
   return (
-    <motion.footer
-      className="text-center py-4 text-xs text-muted-foreground border-t"
-      initial={{ opacity: 0 }}
-      whileInView={{ opacity: 1 }}
-      viewport={{ once: true }}
-      transition={{ duration: 0.6 }}
-    >
-      © Michael Hosamani - 2025
-    </motion.footer>
+    <div className="grid border-b border-border" style={{ gridTemplateColumns: "1fr minmax(0, 720px) 1fr" }}>
+      {/* Left rail */}
+      <div className="border-r border-border" />
+
+      {/* Center content */}
+      <div className="relative py-6 px-6">
+        <div className="flex items-center justify-between text-[11px] text-muted-foreground">
+          <span>Michael Hosamani · {new Date().getFullYear()}</span>
+          <span>Built with Next.js &amp; Tailwind CSS</span>
+        </div>
+      </div>
+
+      {/* Right rail */}
+      <div className="border-l border-border" />
+    </div>
   )
 }

@@ -1,46 +1,128 @@
 "use client"
 
-import { Badge } from "@/components/ui/badge"
-import { Button } from "@/components/ui/button"
-import { Award, ExternalLink } from "lucide-react"
+import { useState } from "react"
+import { motion, AnimatePresence } from "framer-motion"
+import { ChevronUp, ChevronDown } from "lucide-react"
+
+interface ExperienceItem {
+  company: string
+  role: string
+  type: string
+  period: string
+  tags: string[]
+  bullets?: string[]
+}
+
+const experiences: ExperienceItem[] = [
+  {
+    company: "Keploy",
+    role: "Top 3 Open Source Contributor",
+    type: "Contribution",
+    period: "03.2025",
+    tags: ["Next.js", "GraphQL", "TailwindCSS"],
+    bullets: [
+      "Contributed merged PR implementing paginated blog listings for Community and Technology sections using Next.js, GraphQL, and TailwindCSS.",
+      "Enhanced blog website performance and user experience through efficient pagination system.",
+    ],
+  },
+  // Add more experience items here following the same shape
+]
+
+function ExperienceCard({ item }: { item: ExperienceItem }) {
+  const [open, setOpen] = useState(false)
+
+  return (
+    <div className="flex gap-3">
+      {/* Left: dot + vertical company label */}
+      <div className="flex flex-col items-center gap-1 pt-1">
+        <span className="mt-0.5 h-2 w-2 flex-shrink-0 rounded-full border border-border" />
+        <span
+          className="text-[9px] tracking-widest text-muted-foreground/60 uppercase"
+          style={{ writingMode: "vertical-rl", transform: "rotate(180deg)" }}
+        >
+          {item.company}
+        </span>
+      </div>
+
+      {/* Right: card */}
+      <div className="flex-1 pb-4">
+        {/* Role row */}
+        <button
+          onClick={() => setOpen(!open)}
+          className="flex w-full items-center gap-3 rounded-lg border border-border p-3 text-left transition-colors hover:bg-muted/40"
+        >
+          <div className="flex h-7 w-7 flex-shrink-0 items-center justify-center rounded-md border border-border text-[11px] text-muted-foreground">
+            {"</>"}
+          </div>
+          <div className="flex-1 min-w-0">
+            <p className="text-sm font-medium text-foreground">{item.role}</p>
+            <p className="text-[11px] text-muted-foreground">
+              {item.type} &nbsp;·&nbsp; {item.period}
+            </p>
+          </div>
+          {open ? (
+            <ChevronUp className="h-4 w-4 text-muted-foreground flex-shrink-0" />
+          ) : (
+            <ChevronDown className="h-4 w-4 text-muted-foreground flex-shrink-0" />
+          )}
+        </button>
+
+        {/* Tags */}
+        <div className="mt-2 flex flex-wrap gap-1.5">
+          {item.tags.map((tag) => (
+            <span
+              key={tag}
+              className="rounded-full border border-border px-2.5 py-0.5 text-[11px] text-muted-foreground"
+            >
+              {tag}
+            </span>
+          ))}
+        </div>
+
+        {/* Expandable bullets */}
+        <AnimatePresence>
+          {open && item.bullets && (
+            <motion.ul
+              className="mt-3 space-y-1.5 overflow-hidden"
+              initial={{ opacity: 0, height: 0 }}
+              animate={{ opacity: 1, height: "auto" }}
+              exit={{ opacity: 0, height: 0 }}
+              transition={{ duration: 0.3 }}
+            >
+              {item.bullets.map((b, i) => (
+                <li key={i} className="flex items-start gap-2 text-xs text-muted-foreground leading-relaxed">
+                  <span className="mt-1.5 h-1 w-1 flex-shrink-0 rounded-full bg-muted-foreground/50" />
+                  {b}
+                </li>
+              ))}
+            </motion.ul>
+          )}
+        </AnimatePresence>
+      </div>
+    </div>
+  )
+}
 
 export function ExperienceSection() {
   return (
-    <div>
-      <h2 className="text-sm font-bold mb-6 uppercase tracking-wider">Experience</h2>
-      
-      <div className="space-y-6">
-        <div className="border border-border rounded-lg p-4 space-y-3">
-          <div className="flex items-start justify-between gap-3">
-            <div>
-              <h3 className="text-sm font-semibold">Keploy Open Source Contributor</h3>
-              <Badge variant="secondary" className="mt-2 text-[10px]">
-                <Award className="w-3 h-3 mr-1" />
-                Top 3 Contributor - March 2025
-              </Badge>
-            </div>
-          </div>
-          <ul className="space-y-1 text-xs text-muted-foreground">
-            <li>
-              • Contributed merged PR implementing paginated blog listings for Community and Technology sections using Next.js, GraphQL, and TailwindCSS.
-            </li>
-            <li>
-              • Enhanced blog website performance and user experience through efficient pagination system.
-            </li>
-          </ul>
-          <Button variant="outline" size="sm" className="mt-2 h-7 text-[10px] bg-transparent" asChild>
-            <a
-              href="https://github.com/keploy/blog-website/pull/98"
-              target="_blank"
-              rel="noreferrer"
-              className="flex items-center gap-2"
-            >
-              <ExternalLink className="w-3 h-3" />
-              View PR
-            </a>
-          </Button>
+    <div className="grid border-b border-border" style={{ gridTemplateColumns: "1fr minmax(0, 720px) 1fr" }}>
+      {/* Left rail */}
+      <div className="border-r border-border" />
+
+      {/* Center content */}
+      <div className="relative px-6 py-10">
+        <div id="experience" className="absolute -top-10" />
+        <h2 className="section-heading">Experience</h2>
+
+        <div className="flex flex-col">
+          {experiences.map((exp) => (
+            <ExperienceCard key={exp.role} item={exp} />
+          ))}
         </div>
       </div>
+
+      {/* Right rail */}
+      <div className="border-l border-border" />
     </div>
   )
 }

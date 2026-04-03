@@ -30,7 +30,7 @@ export default function RootLayout({
           }
         `}</style>
       </head>
-      <body>
+      <body className="overflow-x-hidden">
         <ThemeProvider attribute="class" defaultTheme="system" enableSystem={true} disableTransitionOnChange={false}>
           <Navbar />
           {children}
