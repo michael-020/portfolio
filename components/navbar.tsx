@@ -47,7 +47,7 @@ export function Navbar() {
         {/* Nav inner */}
         <div className="flex h-[3.2rem] items-center justify-between px-6 border-t relative">
           {/* Logo */}
-          <Link href="/" className="text-sm font-semibold tracking-wide text-foreground hover:opacity-80 transition-opacity">
+          <Link href="/" className="text-[2rem] font-semibold tracking-wide text-foreground hover:opacity-80 transition-opacity font-vt323">
             MH
           </Link>
 
@@ -59,9 +59,9 @@ export function Navbar() {
                   key={link.label}
                   href={link.href}
                   className={[
-                    "text-sm transition-colors",
+                    "text-base transition-colors font-vt323",
                     pathname === link.href || (link.href !== "/" && pathname?.startsWith(link.href))
-                      ? "font-medium text-foreground"
+                      ? "text-foreground"
                       : "text-muted-foreground hover:text-foreground",
                   ].join(" ")}
                 >
@@ -126,9 +126,9 @@ export function Navbar() {
                           href={link.href}
                           onClick={() => setMenuOpen(false)}
                           className={[
-                            "block px-4 py-3 text-sm transition-colors hover:bg-muted",
+                            "block px-4 py-2 text-base transition-colors hover:bg-muted font-vt323",
                             pathname === link.href || (link.href !== "/" && pathname?.startsWith(link.href))
-                              ? "font-medium text-foreground"
+                              ? "text-foreground"
                               : "text-muted-foreground/60",
                           ].join(" ")}
                         >

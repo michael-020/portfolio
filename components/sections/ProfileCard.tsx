@@ -22,7 +22,7 @@ function AnimatedTagline({ text }: { text: string }) {
   return (
     <motion.p
       key={text}
-      className="flex flex-wrap gap-x-[0.3em] text-base text-muted-foreground"
+      className="flex flex-wrap gap-x-[0.3em] text-base font-vt323 text-muted-foreground"
       initial="hidden"
       animate="visible"
       exit="exit"
@@ -104,13 +104,13 @@ export function ProfileCard() {
           transition={{ duration: 0.5, ease: "easeOut" }}
         >
           {/* Avatar */}
-          <div className="flex size-24 flex-shrink-0 items-center justify-center rounded-lg border border-border bg-muted text-2xl font-semibold text-muted-foreground">
+          <div className="flex size-28 font-vt323 flex-shrink-0 items-center justify-center rounded-lg border border-border bg-muted text-7xl font-semibold text-muted-foreground">
             MH
           </div>
 
           {/* Meta */}
           <div className="min-w-0 flex-1">
-            <h1 className="flex items-center gap-1.5 text-2xl font-semibold text-foreground">
+            <h1 className="flex items-center gap-1.5 text-4xl font-semibold text-foreground font-vt323">
               Michael Hosamani
             </h1>
 
@@ -121,7 +121,7 @@ export function ProfileCard() {
               </AnimatePresence>
             </div>
 
-            <p className="mt-3 flex items-center gap-1.5 text-sm text-muted-foreground">
+            <p className="mt-3 flex items-center gap-1.5 text-base text-muted-foreground font-vt323">
               <span className="inline-block h-1.5 w-1.5 rounded-full bg-neutral-400 dark:bg-neutral-600" />
               Idle · Currently pretending to rest
             </p>

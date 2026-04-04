@@ -84,8 +84,18 @@ export function ProjectsSection() {
       {/* Title row */}
       <div className="grid border-b border-border" style={{ gridTemplateColumns: "minmax(16px, 1fr) minmax(0, 720px) minmax(16px, 1fr)" }}>
         <div className="border-r border-border" />
-        <div className="flex items-center px-6 h-10">
-          <h2 className="section-heading">Projects</h2>
+        <div className="flex items-center px-6 h-12">
+          <h2 className="section-heading font-vt323">Projects</h2>
+        </div>
+        <div className="border-l border-border" />
+      </div>
+
+      <div className="grid border-b border-border" style={{ gridTemplateColumns: "minmax(16px, 1fr) minmax(0, 720px) minmax(16px, 1fr)" }}>
+        <div className="border-r border-border" />
+        <div className="flex items-center px-6 py-2 h-20">
+          <p className="font-vt323 text-neutral-400 dark:text-neutral-400 text-base">
+            Projects I’ve built along the way, driven by curiosity and a focus on creating things that actually work and have real impact.
+          </p>
         </div>
         <div className="border-l border-border" />
       </div>
@@ -94,11 +104,11 @@ export function ProjectsSection() {
       <div className="grid border-b border-border" style={{ gridTemplateColumns: "minmax(16px, 1fr) minmax(0, 720px) minmax(16px, 1fr)" }}>
         <div className="border-r border-border" />
 
-        <div className="relative px-6 py-10">
+        <div className="relative px-2 sm:px-6 py-10">
           <div id="projects" className="absolute -top-10" />
 
           <AnimatePresence>
-            <div className="grid grid-cols-2 gap-3">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
               {projects.map((project) => (
                 <ProjectCard key={project.title} project={project} />
               ))}

@@ -48,8 +48,8 @@ export function ConnectSection() {
       {/* Title row */}
       <div className="grid border-b border-border" style={{ gridTemplateColumns: "minmax(16px, 1fr) minmax(0, 720px) minmax(16px, 1fr)" }}>
         <div className="border-r border-border" />
-        <div className="flex items-center px-6 h-10">
-          <h2 className="section-heading">Connect</h2>
+        <div className="flex items-center px-6 h-12">
+          <h2 className="section-heading font-vt323">Connect</h2>
         </div>
         <div className="border-l border-border" />
       </div>
