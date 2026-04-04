@@ -4,6 +4,7 @@ import { ProfileCard } from "@/components/sections/ProfileCard"
 import { AboutSection } from "@/components/sections/AboutSection"
 import { ConnectSection } from "@/components/sections/ConnectSection"
 import { ExperienceSection } from "@/components/sections/ExperienceSection"
+import { SkillsSection } from "@/components/sections/SkillsSection"
 import { Footer } from "@/components/sections/Footer"
 import { Navbar } from "@/components/navbar"
 import { HeroGrid } from "@/components/sections/HeroGrid"
@@ -26,6 +27,8 @@ export default function Portfolio() {
         <GitHubActivity />
         <SectionSeparator />
         <ExperienceSection />
+        <SectionSeparator />
+        <SkillsSection />
         <SectionSeparator />
         <Footer />
         <HeroGrid />

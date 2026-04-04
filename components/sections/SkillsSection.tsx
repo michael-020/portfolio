@@ -1,50 +1,75 @@
 "use client"
 
 import { motion } from "framer-motion"
-import { Card, CardContent } from "@/components/ui/card"
-import { Badge } from "@/components/ui/badge"
-import { Code2 } from "lucide-react"
-import { skills } from "@/lib/skills"
 
-const fadeInUp = {
-  initial: { opacity: 0, y: 60 },
-  animate: { opacity: 1, y: 0 },
-  transition: { duration: 0.6 },
+const skills = {
+  Languages: ["JavaScript", "TypeScript", "C/C++"],
+  "Frameworks & Libraries": [
+    "React.js",
+    "Node.js",
+    "Express.js",
+    "Next.js",
+    "Framer Motion",
+    "Zustand",
+    "Tailwind CSS",
+  ],
+  "Databases & Tools": ["PostgreSQL", "Prisma", "MongoDB", "Docker"],
+  "Concepts & Development Skills": [
+    "WebSockets",
+    "Data Structures & Algorithms",
+    "API Development",
+    "RESTful Services",
+  ],
 }
 
 export function SkillsSection() {
   return (
     <>
-      <div id="skills" className="relative -top-20 sm:-top-40" />
-      <motion.section className="mb-16 sm:mb-20" initial="initial" whileInView="animate" viewport={{ once: true }}>
-        <motion.h2
-          className="text-2xl sm:text-3xl font-bold mb-6 sm:mb-8 flex items-center gap-2 sm:gap-3"
-          variants={fadeInUp}
-        >
-          <Code2 className="w-6 h-6 sm:w-8 sm:h-8 text-primary" />
-          Skills
-        </motion.h2>
-        <motion.div className="grid gap-4 sm:gap-6">
-          {Object.entries(skills).map(([category, skillList], index) => (
-            <motion.div key={index} variants={fadeInUp}>
-              <Card>
-                <CardContent className="p-4 sm:p-6">
-                  <h3 className="text-base sm:text-lg font-semibold mb-3 sm:mb-4">{category}</h3>
-                  <div className="flex flex-wrap gap-1.5 sm:gap-2">
-                    {skillList.map((skill, si) => (
-                      <motion.div key={si} whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
-                        <Badge variant="outline" className="text-xs sm:text-sm">
-                          {skill}
-                        </Badge>
-                      </motion.div>
-                    ))}
-                  </div>
-                </CardContent>
-              </Card>
-            </motion.div>
-          ))}
-        </motion.div>
-      </motion.section>
+      {/* Title row */}
+      <div className="grid border-b border-border" style={{ gridTemplateColumns: "minmax(16px, 1fr) minmax(0, 720px) minmax(16px, 1fr)" }}>
+        <div className="border-r border-border" />
+        <div className="flex items-center px-6 h-10">
+          <h2 className="section-heading">Skills</h2>
+        </div>
+        <div className="border-l border-border" />
+      </div>
+
+      {/* Content row */}
+      <div className="grid border-b border-border" style={{ gridTemplateColumns: "minmax(16px, 1fr) minmax(0, 720px) minmax(16px, 1fr)" }}>
+        <div className="border-r border-border" />
+
+        <div className="relative px-6 py-10">
+          <div id="skills" className="absolute -top-10" />
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+            {Object.entries(skills).map(([category, items], categoryIndex) => (
+              <motion.div
+                key={category}
+                initial={{ opacity: 0, y: 8 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.4, delay: categoryIndex * 0.1 }}
+              >
+                <h3 className="text-xs font-medium text-muted-foreground uppercase tracking-wider mb-3">
+                  {category}
+                </h3>
+                <div className="flex flex-wrap gap-2">
+                  {items.map((skill) => (
+                    <span
+                      key={skill}
+                      className="rounded-full border border-border px-3 py-1 text-xs text-foreground bg-background hover:border-foreground/30 transition-colors"
+                    >
+                      {skill}
+                    </span>
+                  ))}
+                </div>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+
+        <div className="border-l border-border" />
+      </div>
     </>
   )
 }

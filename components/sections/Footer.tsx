@@ -12,7 +12,7 @@ export function Footer() {
       <div className="relative py-6 px-6">
         <div className="flex items-center justify-between text-[11px] text-muted-foreground">
           <span>Michael Hosamani · {new Date().getFullYear()}</span>
-          <span>Built with Next.js &amp; Tailwind CSS</span>
+          <span>Built with Love, Passion & Coffee</span>
         </div>
       </div>
 
