@@ -4,7 +4,7 @@ import { motion, AnimatePresence } from "framer-motion"
 import { ExternalLink, Github } from "lucide-react"
 import { projects } from "@/lib/projects"
 
-function ProjectCard({ project }: { project: (typeof projects)[0] }) {
+function SampleProjectCard({ project }: { project: (typeof projects)[0] }) {
   return (
     <motion.div
       className="flex flex-col rounded-xl border border-border overflow-hidden bg-background"
@@ -100,7 +100,7 @@ export function ProjectsSection() {
           <AnimatePresence>
             <div className="grid grid-cols-2 gap-3">
               {projects.map((project) => (
-                <ProjectCard key={project.title} project={project} />
+                <SampleProjectCard key={project.title} project={project} />
               ))}
             </div>
           </AnimatePresence>

@@ -2,7 +2,7 @@
 
 import { useState } from "react"
 import { motion, AnimatePresence } from "framer-motion"
-import { ChevronUp, ChevronDown } from "lucide-react"
+import { ChevronUp, ChevronDown, ExternalLink } from "lucide-react"
 
 interface ExperienceItem {
   company: string
@@ -11,6 +11,7 @@ interface ExperienceItem {
   period: string
   tags: string[]
   bullets?: string[]
+  prUrl?: string
 }
 
 const experiences: ExperienceItem[] = [
@@ -24,6 +25,7 @@ const experiences: ExperienceItem[] = [
       "Contributed merged PR implementing paginated blog listings for Community and Technology sections using Next.js, GraphQL, and TailwindCSS.",
       "Enhanced blog website performance and user experience through efficient pagination system.",
     ],
+    prUrl: "https://github.com/keploy/blog-website/pull/98",
   },
   // Add more experience items here following the same shape
 ]
@@ -35,9 +37,8 @@ function ExperienceCard({ item }: { item: ExperienceItem }) {
     <div className="flex gap-3">
       {/* Left: dot + vertical company label */}
       <div className="flex flex-col items-center gap-1 pt-1">
-        <span className="mt-0.5 h-2 w-2 flex-shrink-0 rounded-full border border-border" />
         <span
-          className="text-[9px] tracking-widest text-muted-foreground/60 uppercase"
+          className="text-xs tracking-widest text-muted-foreground/60 uppercase"
           style={{ writingMode: "vertical-rl", transform: "rotate(180deg)" }}
         >
           {item.company}
@@ -95,6 +96,19 @@ function ExperienceCard({ item }: { item: ExperienceItem }) {
                   {b}
                 </li>
               ))}
+              {item.prUrl && (
+                <li className="pt-2">
+                  <a
+                    href={item.prUrl}
+                    target="_blank"
+                    rel="noreferrer"
+                    className="inline-flex items-center gap-1.5 text-xs text-muted-foreground hover:text-foreground transition-colors"
+                  >
+                    <ExternalLink className="h-3 w-3" />
+                    View PR
+                  </a>
+                </li>
+              )}
             </motion.ul>
           )}
         </AnimatePresence>
