@@ -13,11 +13,10 @@ import { SectionSeparator } from "@/components/sections/SectionSeparator"
 
 export default function Portfolio() {
   return (
-    <div className="min-h-screen bg-background font-sans">
-
-      {/* Sections are stacked vertically, each with its own 3-col layout */}
-      <main>
-
+    <div className="h-screen bg-background">
+      <main className="custom-scrollbar h-full overflow-y-auto">
+        <Navbar />
+    
         <HeroGrid />
         <ProfileCard />
         <SectionSeparator />
@@ -32,7 +31,6 @@ export default function Portfolio() {
         <ProjectsSection />
         <SectionSeparator />
         <Footer />
-
       </main>
     </div>
   )

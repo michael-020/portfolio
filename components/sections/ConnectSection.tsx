@@ -36,11 +36,6 @@ const links = [
     icon: <Mail className="h-3.5 w-3.5" />,
   },
   {
-    label: "Medium",
-    href: "#",
-    icon: <MediumIcon />,
-  },
-  {
     label: "Resume",
     href: "https://drive.google.com/file/d/1VKa07n8xvyZ7CX3439G_VDlBWz4nhF70/view?usp=sharing",
     icon: <FileText className="h-3.5 w-3.5" />,
@@ -51,7 +46,7 @@ export function ConnectSection() {
   return (
     <>
       {/* Title row */}
-      <div className="grid border-b border-border" style={{ gridTemplateColumns: "1fr minmax(0, 720px) 1fr" }}>
+      <div className="grid border-b border-border" style={{ gridTemplateColumns: "minmax(16px, 1fr) minmax(0, 720px) minmax(16px, 1fr)" }}>
         <div className="border-r border-border" />
         <div className="relative px-6 translate-y-2.5">
           <h2 className="section-heading">Connect</h2>
@@ -60,7 +55,7 @@ export function ConnectSection() {
       </div>
 
       {/* Content row */}
-      <div className="grid border-b border-border" style={{ gridTemplateColumns: "1fr minmax(0, 720px) 1fr" }}>
+      <div className="grid border-b border-border" style={{ gridTemplateColumns: "minmax(16px, 1fr) minmax(0, 720px) minmax(16px, 1fr)" }}>
         <div className="border-r border-border" />
 
         <div className="relative px-6 py-10">

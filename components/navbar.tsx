@@ -28,21 +28,21 @@ export function Navbar() {
 
   return (
     <motion.header
-      className="fixed inset-x-0 top-0 z-50 border-b border-border bg-background/80 backdrop-blur-md"
+      className="sticky top-0 z-50 border-b border-border bg-background"
       initial={{ y: -48, opacity: 0 }}
       animate={{ y: 0, opacity: 1 }}
       transition={{ duration: 0.5, ease: "easeOut" }}
     >
       {/* Same 3-column grid as the page body */}
       <div
-        className="grid w-full"
-        style={{ gridTemplateColumns: "1fr minmax(0, 720px) 1fr" }}
+        className="grid w-full pt-3"
+        style={{ gridTemplateColumns: "minmax(16px, 1fr) minmax(0, 720px) minmax(16px, 1fr)" }}
       >
         {/* Left rail spacer */}
-        <div className="border-r border-border" />
+        <div className="border-r border-border border-t " />
 
         {/* Nav inner */}
-        <div className="flex h-[3.3rem] items-center justify-between px-6">
+        <div className="flex h-[3.2rem] items-center justify-between px-6 border-t">
           {/* Logo */}
           <span className="text-sm font-semibold tracking-wide text-foreground">
             MH
@@ -92,7 +92,7 @@ export function Navbar() {
         </div>
 
         {/* Right rail spacer */}
-        <div className="border-l border-border" />
+        <div className="border-l border-t border-border" />
       </div>
     </motion.header>
   )

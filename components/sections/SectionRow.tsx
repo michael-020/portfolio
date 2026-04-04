@@ -35,7 +35,7 @@ export function SectionRow({
         "col-span-full grid border-b border-border",
         className
       )}
-      style={{ gridTemplateColumns: "1fr minmax(0, 720px) 1fr" }}
+      style={{ gridTemplateColumns: "minmax(16px, 1fr) minmax(0, 720px) minmax(16px, 1fr)" }}
     >
       {/* Left rail */}
       <div className="rail rail-left" />

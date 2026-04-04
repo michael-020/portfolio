@@ -2,7 +2,7 @@
 
 export function Footer() {
   return (
-    <div className="grid border-b border-border" style={{ gridTemplateColumns: "1fr minmax(0, 720px) 1fr" }}>
+    <div className="grid border-b border-border" style={{ gridTemplateColumns: "minmax(16px, 1fr) minmax(0, 720px) minmax(16px, 1fr)" }}>
       {/* Left rail */}
       <div className="border-r border-border" />
 
