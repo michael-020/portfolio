@@ -22,7 +22,15 @@ export function GitHubActivity() {
 
   useEffect(() => {
     const now = new Date();
-    const twelveMonthsAgo = new Date(now.getFullYear(), now.getMonth() - 12, 1);
+    let twelveMonthsAgo = new Date(now.getFullYear(), now.getMonth() - 12, 1);
+    
+    // If not a Monday (1), go back to the previous Monday
+    const dayOfWeek = twelveMonthsAgo.getDay(); // 0=Sunday, 1=Monday, etc.
+    if (dayOfWeek !== 1) {
+      const daysToSubtract = dayOfWeek === 0 ? 6 : dayOfWeek;
+      twelveMonthsAgo.setDate(twelveMonthsAgo.getDate() - daysToSubtract);
+    }
+    
     const tenDaysFromNow = new Date(now.getTime() + 10 * 24 * 60 * 60 * 1000);
     setDateRange({ start: twelveMonthsAgo, end: tenDaysFromNow });
 
@@ -69,7 +77,7 @@ export function GitHubActivity() {
 
         <div className="relative p-2 py-4 sm:px-6 sm:py-10">
           <div className="border border-border rounded-lg p-2 sm:p-3 overflow-x-auto relative no-scrollbar">
-            <div className="dark:opacity-0 min-w-0">
+            <div className="dark:opacity-0 min-w-0 flex justify-center">
 
              <GitHubCalendar
               username="michael-020"
@@ -91,7 +99,7 @@ export function GitHubActivity() {
               }}
               />
             </div>
-            <div className="opacity-0 dark:opacity-100 p-2 sm:p-3 absolute inset-0 min-w-0">
+            <div className="opacity-0 dark:opacity-100 p-2 sm:p-3 absolute inset-0 min-w-0 flex justify-center">
 
              <GitHubCalendar
               username="michael-020"
