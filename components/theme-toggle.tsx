@@ -4,42 +4,37 @@ import { useModeAnimation, ThemeAnimationType } from 'react-theme-switch-animati
 import { Moon, Sun } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { useTheme } from "next-themes"
-import { useEffect, useState, useCallback } from "react"
+import { useEffect, useState, useCallback, useRef } from "react"
 
-function playClickSound(isDark: boolean) {
-  const audioContext = new (window.AudioContext || (window as any).webkitAudioContext)()
-  const oscillator = audioContext.createOscillator()
-  const gainNode = audioContext.createGain()
-  
-  oscillator.connect(gainNode)
-  gainNode.connect(audioContext.destination)
-  
-  // Different tones for light vs dark mode
-  oscillator.frequency.value = isDark ? 440 : 660 // A4 for dark, E5 for light
-  oscillator.type = "sine"
-  
-  gainNode.gain.setValueAtTime(0.1, audioContext.currentTime)
-  gainNode.gain.exponentialRampToValueAtTime(0.01, audioContext.currentTime + 0.15)
-  
-  oscillator.start(audioContext.currentTime)
-  oscillator.stop(audioContext.currentTime + 0.15)
+function playShutterSound() {
+  const audio = new Audio('/sounds/shutter.wav')
+  audio.volume = 1
+  audio.play().catch(() => {
+    // Ignore autoplay restrictions
+  })
 }
 
 export function ThemeToggle() {
   const { setTheme, resolvedTheme } = useTheme()
   const [mounted, setMounted] = useState(false)
   const isDarkMode = resolvedTheme === "dark"
+  const isDarkModeRef = useRef(isDarkMode)
+  
+  // Keep ref in sync with state
+  useEffect(() => {
+    isDarkModeRef.current = isDarkMode
+  }, [isDarkMode])
   
   const handleToggle = useCallback(() => {
-    playClickSound(!isDarkMode)
+    playShutterSound()
     toggleSwitchTheme()
-  }, [isDarkMode])
+  }, [])
   
   const { ref, toggleSwitchTheme } = useModeAnimation({
     animationType: ThemeAnimationType.QR_SCAN,
     duration: 500,
     onDarkModeChange: () => {
-      setTheme(isDarkMode ? "light" : "dark")
+      setTheme(isDarkModeRef.current ? "light" : "dark")
     }
   })
 
