@@ -18,7 +18,7 @@ const minimalTheme: ThemeInput = {
 
 export function GitHubActivity() {
   const [dateRange, setDateRange] = useState<{ start: Date; end: Date } | null>(null);
-  const [blockSize, setBlockSize] = useState(20);
+  const [blockSize, setBlockSize] = useState(10);
 
   useEffect(() => {
     const now = new Date();
@@ -57,7 +57,7 @@ export function GitHubActivity() {
       {/* Title row */}
       <div className="grid border-b border-border" style={{ gridTemplateColumns: "minmax(16px, 1fr) minmax(0, 720px) minmax(16px, 1fr)" }}>
         <div className="border-r border-border" />
-        <div className="relative px-6 translate-y-2.5">
+        <div className="flex items-center px-6 h-10">
           <h2 className="section-heading">GitHub Activity</h2>
         </div>
         <div className="border-l border-border" />
@@ -75,7 +75,7 @@ export function GitHubActivity() {
               username="michael-020"
               blockSize={blockSize}
               blockMargin={2}
-              fontSize={15}
+              fontSize={12}
               theme={minimalTheme}
               colorScheme="light"
               transformData={transformData}

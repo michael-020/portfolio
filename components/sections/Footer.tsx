@@ -1,5 +1,7 @@
 "use client"
 
+import { HeroGrid } from "./HeroGrid"
+
 export function Footer() {
   return (
     <div className="grid border-b border-border" style={{ gridTemplateColumns: "minmax(16px, 1fr) minmax(0, 720px) minmax(16px, 1fr)" }}>

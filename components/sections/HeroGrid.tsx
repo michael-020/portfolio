@@ -12,7 +12,7 @@ export function HeroGrid() {
       <div className="border-r border-border relative z-10" />
 
       {/* Center content with dot grid */}
-      <div className="h-full relative z-0 p-5 h-full" >
+      <div className="h-full relative z-0 p-5" >
         <DotGrid />
       </div>
 

@@ -1,8 +1,7 @@
 "use client"
 
-import { useState } from "react"
 import { motion, AnimatePresence } from "framer-motion"
-import { ChevronDown, ExternalLink, Github } from "lucide-react"
+import { ExternalLink, Github } from "lucide-react"
 import { projects } from "@/lib/projects"
 
 function ProjectCard({ project }: { project: (typeof projects)[0] }) {
@@ -79,18 +78,13 @@ function ProjectCard({ project }: { project: (typeof projects)[0] }) {
   )
 }
 
-const DEFAULT_VISIBLE = 4
-
 export function ProjectsSection() {
-  const [showAll, setShowAll] = useState(false)
-  const visible = showAll ? projects : projects.slice(0, DEFAULT_VISIBLE)
-
   return (
     <>
       {/* Title row */}
       <div className="grid border-b border-border" style={{ gridTemplateColumns: "minmax(16px, 1fr) minmax(0, 720px) minmax(16px, 1fr)" }}>
         <div className="border-r border-border" />
-        <div className="relative px-6 translate-y-2.5">
+        <div className="flex items-center px-6 h-10">
           <h2 className="section-heading">Projects</h2>
         </div>
         <div className="border-l border-border" />
@@ -105,30 +99,11 @@ export function ProjectsSection() {
 
           <AnimatePresence>
             <div className="grid grid-cols-2 gap-3">
-              {visible.map((project) => (
+              {projects.map((project) => (
                 <ProjectCard key={project.title} project={project} />
               ))}
             </div>
           </AnimatePresence>
-
-          {projects.length > DEFAULT_VISIBLE && (
-            <div className="mt-6 flex justify-center">
-              <motion.button
-                onClick={() => setShowAll(!showAll)}
-                className="inline-flex items-center gap-2 rounded-full border border-border bg-background px-5 py-1.5 text-xs text-muted-foreground hover:border-foreground/30 hover:text-foreground transition-colors"
-                whileHover={{ scale: 1.02 }}
-                whileTap={{ scale: 0.98 }}
-              >
-                {showAll ? "Show less" : "View more projects"}
-                <motion.span
-                  animate={{ rotate: showAll ? 180 : 0 }}
-                  transition={{ duration: 0.25 }}
-                >
-                  <ChevronDown className="h-3.5 w-3.5" />
-                </motion.span>
-              </motion.button>
-            </div>
-          )}
         </div>
 
         <div className="border-l border-border" />

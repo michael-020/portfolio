@@ -4,7 +4,6 @@ import { ProfileCard } from "@/components/sections/ProfileCard"
 import { AboutSection } from "@/components/sections/AboutSection"
 import { ConnectSection } from "@/components/sections/ConnectSection"
 import { ExperienceSection } from "@/components/sections/ExperienceSection"
-import { ProjectsSection } from "@/components/sections/ProjectsSection"
 import { Footer } from "@/components/sections/Footer"
 import { Navbar } from "@/components/navbar"
 import { HeroGrid } from "@/components/sections/HeroGrid"
@@ -28,9 +27,8 @@ export default function Portfolio() {
         <SectionSeparator />
         <ExperienceSection />
         <SectionSeparator />
-        <ProjectsSection />
-        <SectionSeparator />
         <Footer />
+        <HeroGrid />
       </main>
     </div>
   )

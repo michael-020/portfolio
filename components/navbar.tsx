@@ -1,20 +1,21 @@
 "use client"
 
 import { useState, useEffect } from "react"
-import { motion } from "framer-motion"
-import { Sun, Moon, Search } from "lucide-react"
+import { Sun, Moon } from "lucide-react"
 import { useTheme } from "next-themes"
+import Link from "next/link"
+import { usePathname } from "next/navigation"
 
 const navLinks = [
-  { label: "Home",     href: "#about" },
-  { label: "Projects", href: "#projects" },
-  { label: "More",     href: "#connect" },
+  { label: "Home", href: "/", isPage: true },
+  { label: "Projects", href: "/projects", isPage: true },
 ]
 
 export function Navbar() {
   const { theme, setTheme } = useTheme()
   const [active, setActive] = useState("Home")
   const [mounted, setMounted] = useState(false)
+  const pathname = usePathname()
 
   useEffect(() => {
     setMounted(true)
@@ -22,17 +23,12 @@ export function Navbar() {
 
   const scrollTo = (href: string, label: string) => {
     setActive(label)
-    const el = document.querySelector(href)
+    const el = document.querySelector(href.replace("/", ""))
     if (el) el.scrollIntoView({ behavior: "smooth" })
   }
 
   return (
-    <motion.header
-      className="sticky top-0 z-50 border-b border-border bg-background"
-      initial={{ y: -48, opacity: 0 }}
-      animate={{ y: 0, opacity: 1 }}
-      transition={{ duration: 0.5, ease: "easeOut" }}
-    >
+    <header className="sticky top-0 z-50 border-b border-border bg-background">
       {/* Same 3-column grid as the page body */}
       <div
         className="grid w-full pt-3"
@@ -44,37 +40,42 @@ export function Navbar() {
         {/* Nav inner */}
         <div className="flex h-[3.2rem] items-center justify-between px-6 border-t">
           {/* Logo */}
-          <span className="text-sm font-semibold tracking-wide text-foreground">
+          <Link href="/" className="text-sm font-semibold tracking-wide text-foreground hover:opacity-80 transition-opacity">
             MH
-          </span>
+          </Link>
 
-          {/* Centre links */}
-          <nav className="hidden sm:flex items-center gap-6">
+          <div className="flex items-center gap-6">
+            <nav className="hidden sm:flex items-center gap-6">
             {navLinks.map((link) => (
-              <button
-                key={link.label}
-                onClick={() => scrollTo(link.href, link.label)}
-                className={[
-                  "text-xs transition-colors",
-                  active === link.label
-                    ? "font-medium text-foreground"
-                    : "text-muted-foreground hover:text-foreground",
-                ].join(" ")}
-              >
-                {link.label}
-                {link.label === "More" && (
-                  <span className="ml-0.5 text-muted-foreground">∨</span>
-                )}
-              </button>
+              link.isPage ? (
+                <Link
+                  key={link.label}
+                  href={link.href}
+                  className={[
+                    "text-sm transition-colors",
+                    pathname === link.href || (link.href !== "/" && pathname?.startsWith(link.href))
+                      ? "font-medium text-foreground"
+                      : "text-muted-foreground hover:text-foreground",
+                  ].join(" ")}
+                >
+                  {link.label}
+                </Link>
+              ) : (
+                <button
+                  key={link.label}
+                  onClick={() => scrollTo(link.href, link.label)}
+                  className={[
+                    "text-sm transition-colors",
+                    active === link.label && pathname === "/"
+                      ? "font-medium text-foreground"
+                      : "text-muted-foreground hover:text-foreground",
+                  ].join(" ")}
+                >
+                  {link.label}
+                </button>
+              )
             ))}
           </nav>
-
-          {/* Right: search pill + theme toggle */}
-          <div className="flex items-center gap-2">
-            <button className="hidden sm:flex items-center gap-1.5 rounded-md border border-border px-2 py-0.5 text-[11px] text-muted-foreground hover:border-foreground/30 transition-colors">
-              <Search className="h-2.5 w-2.5" />
-              <span>⌘ K</span>
-            </button>
 
             {mounted && (
               <button
@@ -94,6 +95,6 @@ export function Navbar() {
         {/* Right rail spacer */}
         <div className="border-l border-t border-border" />
       </div>
-    </motion.header>
+    </header>
   )
 }
