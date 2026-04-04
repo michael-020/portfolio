@@ -52,9 +52,9 @@ export function Navbar() {
             MH
           </Link>
 
-          <div className="flex items-center justify-center gap-1 sm:gap-4" ref={menuRef}>
+          <div className="flex items-center justify-center gap-2 sm:gap-4" ref={menuRef}>
             {/* Desktop nav - hidden on small screens */}
-            <nav className="hidden sm:flex items-center gap-6">
+            <nav className="flex items-center gap-5 sm:gap-6">
               {navLinks.map((link) => (
                 <Link
                   key={link.label}
@@ -71,15 +71,20 @@ export function Navbar() {
               ))}
             </nav>
 
+            {/* Vertical separator */}
+            <div className="h-5 w-[2px] bg-border" />
+
             {/* Theme toggle */}
-            <ThemeToggle />
+            <div className="-ml-2">
+              <ThemeToggle />
+            </div>
 
             {/* Mobile menu button - shown only on small screens */}
-            <Button
+            {/* <Button
               variant={"ghost"}
               size={"icon"}
               onClick={() => setMenuOpen(!menuOpen)}
-              className="sm:hidden flex h-8 w-8 items-center justify-center rounded-md text-muted-foreground hover:bg-background/50 transition-colors"
+              className="shidden  h-8 w-8 items-center justify-center rounded-md text-muted-foreground hover:bg-background/50 transition-colors"
               aria-label={menuOpen ? "Close menu" : "Open menu"}
             >
               <AnimatePresence mode="wait">
@@ -105,7 +110,7 @@ export function Navbar() {
                   </motion.div>
                 )}
               </AnimatePresence>
-            </Button>
+            </Button> */}
 
             {/* Mobile dropdown menu */}
             <AnimatePresence>

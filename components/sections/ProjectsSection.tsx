@@ -82,12 +82,12 @@ export function ProjectsSection() {
   return (
     <>
       {/* Title row */}
-      <div className="grid border-b border-dashed border-border" style={{ gridTemplateColumns: "minmax(16px, 1fr) minmax(0, 780px) minmax(16px, 1fr)" }}>
-        <div className="border-r border-dashed border-border" />
+      <div className="grid border-b border-border" style={{ gridTemplateColumns: "minmax(16px, 1fr) minmax(0, 780px) minmax(16px, 1fr)" }}>
+        <div className="border-r border-border" />
         <div className="flex items-center px-2 sm:px-6 h-12">
           <h2 className="section-heading font-vt323">Projects</h2>
         </div>
-        <div className="border-l border-dashed border-border" />
+        <div className="border-l border-border" />
       </div>
 
       <div className="grid border-b border-border" style={{ gridTemplateColumns: "minmax(16px, 1fr) minmax(0, 780px) minmax(16px, 1fr)" }}>
