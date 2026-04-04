@@ -40,7 +40,7 @@ export function Navbar() {
     <header className="sticky top-0 z-50 border-b border-border bg-background">
       <div
         className="grid w-full pt-3"
-        style={{ gridTemplateColumns: "minmax(16px, 1fr) minmax(0, 720px) minmax(16px, 1fr)" }}
+        style={{ gridTemplateColumns: "minmax(16px, 1fr) minmax(0, 780px) minmax(16px, 1fr)" }}
       >
         {/* Left rail spacer */}
         <div className="border-r border-border border-t" />

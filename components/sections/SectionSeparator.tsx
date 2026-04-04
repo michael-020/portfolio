@@ -2,7 +2,7 @@
 
 export function SectionSeparator() {
   return (
-    <div className="grid border-b relative h-8" style={{ gridTemplateColumns: "1fr minmax(0, 720px) 1fr" }}>
+    <div className="grid border-b relative h-8" style={{ gridTemplateColumns: "minmax(16px, 1fr) minmax(0, 780px) minmax(16px, 1fr)" }}>
       {/* Full-width diagonal lines background */}
       <div 
         className="absolute inset-0 w-full h-8 separator-diagonals" 

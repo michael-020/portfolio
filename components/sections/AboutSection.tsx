@@ -13,7 +13,7 @@ export function AboutSection() {
   return (
     <>
       {/* Title row */}
-      <div className="grid border-b border-border" style={{ gridTemplateColumns: "minmax(16px, 1fr) minmax(0, 720px) minmax(16px, 1fr)" }}>
+      <div className="grid border-b border-border" style={{ gridTemplateColumns: "minmax(16px, 1fr) minmax(0, 780px) minmax(16px, 1fr)" }}>
         <div className="border-r border-border" />
         <div className="flex items-center px-2 sm:px-6 h-12">
           <h2 className="section-heading font-vt323 text-2xl">About</h2>
@@ -22,7 +22,7 @@ export function AboutSection() {
       </div>
 
       {/* Content row */}
-      <div className="grid border-b border-border" style={{ gridTemplateColumns: "minmax(16px, 1fr) minmax(0, 720px) minmax(16px, 1fr)" }}>
+      <div className="grid border-b border-border" style={{ gridTemplateColumns: "minmax(16px, 1fr) minmax(0, 780px) minmax(16px, 1fr)" }}>
         <div className="border-r border-border" />
 
         <div className="relative px-2 py-4 sm:px-6 sm:py-10">

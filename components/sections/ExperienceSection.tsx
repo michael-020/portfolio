@@ -3,6 +3,7 @@
 import { useState } from "react"
 import { motion, AnimatePresence } from "framer-motion"
 import { ChevronUp, ChevronDown, ExternalLink } from "lucide-react"
+import { Button } from "../ui/button"
 
 interface ExperienceItem {
   company: string
@@ -38,7 +39,7 @@ function ExperienceCard({ item }: { item: ExperienceItem }) {
       {/* Left: dot + vertical company label */}
       <div className="flex flex-col items-center gap-1 pt-1">
         <span
-          className="text-xs tracking-widest text-muted-foreground/60 uppercase"
+          className="text-sm sm:text-xs tracking-widest text-muted-foreground/60 uppercase"
           style={{ writingMode: "vertical-rl", transform: "rotate(180deg)" }}
         >
           {item.company}
@@ -98,15 +99,17 @@ function ExperienceCard({ item }: { item: ExperienceItem }) {
               ))}
               {item.prUrl && (
                 <li className="pt-2">
-                  <a
-                    href={item.prUrl}
-                    target="_blank"
-                    rel="noreferrer"
-                    className="inline-flex items-center gap-1.5 text-xs text-muted-foreground hover:text-foreground transition-colors"
-                  >
-                    <ExternalLink className="h-3 w-3" />
-                    View PR
-                  </a>
+                  <Button variant="ghost" size="sm">
+                    <a
+                      href={item.prUrl}
+                      target="_blank"
+                      rel="noreferrer"
+                      className="inline-flex items-center gap-1.5 text-xs text-muted-foreground hover:text-foreground transition-colors"
+                    >
+                      <ExternalLink className="h-3 w-3" />
+                      View PR
+                    </a>
+                  </Button>
                 </li>
               )}
             </motion.ul>
@@ -121,7 +124,7 @@ export function ExperienceSection() {
   return (
     <>
       {/* Title row */}
-      <div className="grid border-b border-border" style={{ gridTemplateColumns: "minmax(16px, 1fr) minmax(0, 720px) minmax(16px, 1fr)" }}>
+      <div className="grid border-b border-border" style={{ gridTemplateColumns: "minmax(16px, 1fr) minmax(0, 780px) minmax(16px, 1fr)" }}>
         <div className="border-r border-border" />
         <div className="flex items-center px-2 sm:px-6 h-12">
           <h2 className="section-heading font-vt323">Experience</h2>
@@ -130,10 +133,10 @@ export function ExperienceSection() {
       </div>
 
       {/* Content row */}
-      <div className="grid border-b border-border" style={{ gridTemplateColumns: "minmax(16px, 1fr) minmax(0, 720px) minmax(16px, 1fr)" }}>
+      <div className="grid border-b border-border" style={{ gridTemplateColumns: "minmax(16px, 1fr) minmax(0, 780px) minmax(16px, 1fr)" }}>
         <div className="border-r border-border" />
 
-        <div className="relative px-6 py-10">
+        <div className="relative px-2 sm:px-6 py-4 sm:py-10">
           <div id="experience" className="absolute -top-10" />
 
           <div className="flex flex-col">

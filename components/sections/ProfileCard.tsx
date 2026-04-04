@@ -88,7 +88,7 @@ export function ProfileCard() {
       className="grid border-b border-border"
       style={{
         gridTemplateColumns:
-          "minmax(16px, 1fr) minmax(0, 720px) minmax(16px, 1fr)",
+          "minmax(16px, 1fr) minmax(0, 780px) minmax(16px, 1fr)",
       }}
     >
       {/* Left rail */}
@@ -97,12 +97,7 @@ export function ProfileCard() {
       <div className="relative py-5 px-2 sm:px-6">
         <div id="about" className="absolute -top-10" />
 
-        <motion.div
-          className="relative flex items-start gap-4 rounded-xl border border-border bg-background p-2 sm:p-4"
-          initial={{ opacity: 0, y: 12 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5, ease: "easeOut" }}
-        >
+        <motion.div className="relative flex items-start gap-4 rounded-xl border border-border bg-background p-2 sm:p-4">
           {/* Avatar */}
           <div className="flex size-28 font-vt323 flex-shrink-0 items-center justify-center rounded-lg border border-border bg-muted text-7xl font-semibold text-muted-foreground">
             MH

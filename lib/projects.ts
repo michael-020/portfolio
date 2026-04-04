@@ -3,7 +3,7 @@ export const projects = [
     title: "Zap",
     date: "",
     description:
-      "AI-powered SaaS that generates structured React codebases and clones static or dynamic websites with subscription-based access control and secure Razorpay integration.",
+      "An AI-powered SaaS platform that automatically generates structured React codebases and replicates both static and dynamic websites, featuring subscription-based access control and secure Razorpay payment integration.",
     tags: ["TypeScript", "Next.js", "Zustand", "Tailwind CSS", "Prisma", "PostgreSQL", "Razorpay"],
     gradient: "",
     image: "/images/projects/zap.png",

@@ -7,7 +7,7 @@ import { projects } from "@/lib/projects"
 function ProjectCard({ project }: { project: (typeof projects)[0] }) {
   return (
     <motion.div
-      className="flex flex-col rounded-xl border border-border overflow-hidden bg-background"
+      className="flex flex-col rounded-xl border border-dashed border-border overflow-hidden bg-background p-2"
       initial={{ opacity: 0, y: 8 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
@@ -15,7 +15,7 @@ function ProjectCard({ project }: { project: (typeof projects)[0] }) {
     >
       {/* Thumbnail */}
       <div
-        className="relative h-36 flex-shrink-0 overflow-hidden"
+        className="relative h-48 flex-shrink-0 overflow-hidden rounded-md"
         style={{ background: project.gradient ?? "hsl(var(--muted))" }}
       >
         {project.image && (
@@ -35,7 +35,7 @@ function ProjectCard({ project }: { project: (typeof projects)[0] }) {
           <span className="flex-shrink-0 text-[11px] text-muted-foreground">{project.date}</span>
         </div>
 
-        <p className="mb-2.5 flex-1 text-[12px] leading-relaxed text-muted-foreground line-clamp-3">
+        <p className="mb-2.5 flex-1 text-[12px] leading-relaxed text-muted-foreground">
           {project.description}
         </p>
 
@@ -52,7 +52,7 @@ function ProjectCard({ project }: { project: (typeof projects)[0] }) {
         </div>
 
         {/* Footer links */}
-        <div className="-mx-3 -mb-3 mt-auto grid grid-cols-[1fr_1px_1fr] border-t border-border">
+        <div className="-mx-3 -mb-3 mt-auto grid grid-cols-[1fr_1px_1fr] border-t border-dashed border-border">
           <a
             href={project.liveUrl}
             target="_blank"
@@ -82,15 +82,15 @@ export function ProjectsSection() {
   return (
     <>
       {/* Title row */}
-      <div className="grid border-b border-border" style={{ gridTemplateColumns: "minmax(16px, 1fr) minmax(0, 720px) minmax(16px, 1fr)" }}>
-        <div className="border-r border-border" />
+      <div className="grid border-b border-dashed border-border" style={{ gridTemplateColumns: "minmax(16px, 1fr) minmax(0, 780px) minmax(16px, 1fr)" }}>
+        <div className="border-r border-dashed border-border" />
         <div className="flex items-center px-2 sm:px-6 h-12">
           <h2 className="section-heading font-vt323">Projects</h2>
         </div>
-        <div className="border-l border-border" />
+        <div className="border-l border-dashed border-border" />
       </div>
 
-      <div className="grid border-b border-border" style={{ gridTemplateColumns: "minmax(16px, 1fr) minmax(0, 720px) minmax(16px, 1fr)" }}>
+      <div className="grid border-b border-border" style={{ gridTemplateColumns: "minmax(16px, 1fr) minmax(0, 780px) minmax(16px, 1fr)" }}>
         <div className="border-r border-border" />
         <div className="flex items-center px-2 sm:px-6 h-24 sm:py-2 sm:h-20">
           <p className="font-vt323 text-neutral-400 dark:text-neutral-400 text-base">
@@ -101,10 +101,10 @@ export function ProjectsSection() {
       </div>
 
       {/* Content row */}
-      <div className="grid border-b border-border" style={{ gridTemplateColumns: "minmax(16px, 1fr) minmax(0, 720px) minmax(16px, 1fr)" }}>
+      <div className="grid border-b border-border" style={{ gridTemplateColumns: "minmax(16px, 1fr) minmax(0, 780px) minmax(16px, 1fr)" }}>
         <div className="border-r border-border" />
 
-        <div className="relative px-2 sm:px-6 py-10">
+        <div className="relative px-2 sm:px-3 py-4 sm:py-8">
           <div id="projects" className="absolute -top-10" />
 
           <AnimatePresence>

@@ -46,7 +46,7 @@ export function ConnectSection() {
   return (
     <>
       {/* Title row */}
-      <div className="grid border-b border-border" style={{ gridTemplateColumns: "minmax(16px, 1fr) minmax(0, 720px) minmax(16px, 1fr)" }}>
+      <div className="grid border-b border-border" style={{ gridTemplateColumns: "minmax(16px, 1fr) minmax(0, 780px) minmax(16px, 1fr)" }}>
         <div className="border-r border-border" />
         <div className="flex items-center px-2 sm:px-6 h-12">
           <h2 className="section-heading font-vt323">Connect</h2>
@@ -55,10 +55,10 @@ export function ConnectSection() {
       </div>
 
       {/* Content row */}
-      <div className="grid border-b border-border" style={{ gridTemplateColumns: "minmax(16px, 1fr) minmax(0, 720px) minmax(16px, 1fr)" }}>
+      <div className="grid border-b border-border" style={{ gridTemplateColumns: "minmax(16px, 1fr) minmax(0, 780px) minmax(16px, 1fr)" }}>
         <div className="border-r border-border" />
 
-        <div className="relative px-2 sm:px-6 py-10">
+        <div className="relative px-2 sm:px-6 py-4 sm:py-10">
           <div id="connect" className="absolute -top-10" />
 
           <div className="flex flex-wrap gap-2">
