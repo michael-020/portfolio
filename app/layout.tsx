@@ -4,7 +4,6 @@ import { GeistSans } from "geist/font/sans"
 import { GeistMono } from "geist/font/mono"
 import { ThemeProvider } from "@/components/theme-provider"
 import "./globals.css"
-import { Navbar } from "@/components/navbar"
 
 export const metadata: Metadata = {
   title: "Michael Hosamani - Full Stack Developer",

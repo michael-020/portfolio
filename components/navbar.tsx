@@ -1,11 +1,11 @@
 "use client"
 
 import { useState, useEffect, useRef } from "react"
-import { Sun, Moon, Menu, X } from "lucide-react"
-import { useTheme } from "next-themes"
+import { Menu, X } from "lucide-react"
 import Link from "next/link"
 import { usePathname } from "next/navigation"
 import { motion, AnimatePresence } from "framer-motion"
+import { ThemeToggle } from "@/components/theme-toggle"
 
 const navLinks = [
   { label: "Home", href: "/" },
@@ -13,15 +13,14 @@ const navLinks = [
 ]
 
 export function Navbar() {
-  const { theme, setTheme } = useTheme()
-  const [mounted, setMounted] = useState(false)
   const [menuOpen, setMenuOpen] = useState(false)
   const pathname = usePathname()
   const menuRef = useRef<HTMLDivElement>(null)
 
   useEffect(() => {
-    setMounted(true)
-  }, [])
+    // Close menu on route change
+    setMenuOpen(false)
+  }, [pathname])
 
   // Close menu when clicking outside
   useEffect(() => {
@@ -35,11 +34,6 @@ export function Navbar() {
     }
     return () => document.removeEventListener("mousedown", handleClickOutside)
   }, [menuOpen])
-
-  // Close menu on route change
-  useEffect(() => {
-    setMenuOpen(false)
-  }, [pathname])
 
   return (
     <header className="sticky top-0 z-50 border-b border-border bg-background">
@@ -77,18 +71,7 @@ export function Navbar() {
             </nav>
 
             {/* Theme toggle */}
-            {mounted && (
-              <button
-                onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
-                className="flex size-8 p-2 hover:bg-neutral-100 dark:hover:bg-neutral-900 items-center justify-center rounded-md text-muted-foreground hover:text-foreground transition-colors"
-              >
-                {theme === "dark" ? (
-                  <Sun />
-                ) : (
-                  <Moon />
-                )}
-              </button>
-            )}
+            <ThemeToggle />
 
             {/* Mobile menu button - shown only on small screens */}
             <button

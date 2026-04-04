@@ -69,13 +69,13 @@ export function ProjectCard({
       exit={{ opacity: 0, y: 12 }}
       transition={{ duration: 0.4, delay }}
       whileHover={{ y: -2 }}
-      onClick={() => window.open(`https://${project.link}`, '_blank')}
+      onClick={() => window.open(`https://${project.liveUrl}`, '_blank')}
     >
       {/* full-bleed image */}
       <div className={`relative w-full overflow-hidden ${heightClass}`}>
         <Image
           src={project.image}
-          alt={project.imageAlt || project.title}
+          alt={project.title}
           fill
           className="object-cover transition-all duration-700 ease-out
             brightness-[0.72] group-hover:brightness-[0.88] group-hover:scale-[1.05]"
@@ -98,11 +98,11 @@ export function ProjectCard({
               {project.title}
             </h3>
             <div className="flex gap-1.5 flex-shrink-0">
-              <GhostBtn href={`https://${project.link}`}>
+              <GhostBtn href={`https://${project.liveUrl}`}>
                 <ArrowUpRight className="w-2.5 h-2.5" />
                 Live
               </GhostBtn>
-              <GhostBtn href={project.github}>
+              <GhostBtn href={project.githubUrl}>
                 <Github className="w-2.5 h-2.5" />
                 Code
               </GhostBtn>
@@ -119,7 +119,7 @@ export function ProjectCard({
           {/* tags + live */}
           <div className="flex items-center justify-between gap-2 flex-wrap">
             <div className="flex gap-1 flex-wrap">
-              {project.tech.slice(0, maxTags).map((t, i) => (
+              {project.tags.slice(0, maxTags).map((t, i) => (
                 <span
                   key={i}
                   className="text-[9px] font-medium px-1.5 py-0.5 rounded-full
@@ -128,9 +128,9 @@ export function ProjectCard({
                   {t}
                 </span>
               ))}
-              {project.tech.length > maxTags && (
+              {project.tags.length > maxTags && (
                 <span className="text-[9px] text-white/40 self-center">
-                  +{project.tech.length - maxTags}
+                  +{project.tags.length - maxTags}
                 </span>
               )}
             </div>

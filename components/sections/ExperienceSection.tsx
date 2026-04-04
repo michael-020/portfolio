@@ -17,9 +17,9 @@ interface ExperienceItem {
 const experiences: ExperienceItem[] = [
   {
     company: "Keploy",
-    role: "Top 3 Open Source Contributor",
+    role: "Top 3 Open Source Contributor in March 2025",
     type: "Contribution",
-    period: "03.2025",
+    period: "February - March 2025",
     tags: ["Next.js", "GraphQL", "TailwindCSS"],
     bullets: [
       "Contributed merged PR implementing paginated blog listings for Community and Technology sections using Next.js, GraphQL, and TailwindCSS.",
