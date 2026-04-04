@@ -84,7 +84,7 @@ export function ProjectsSection() {
       {/* Title row */}
       <div className="grid border-b border-border" style={{ gridTemplateColumns: "minmax(16px, 1fr) minmax(0, 720px) minmax(16px, 1fr)" }}>
         <div className="border-r border-border" />
-        <div className="flex items-center px-6 h-12">
+        <div className="flex items-center px-2 sm:px-6 h-12">
           <h2 className="section-heading font-vt323">Projects</h2>
         </div>
         <div className="border-l border-border" />
@@ -92,7 +92,7 @@ export function ProjectsSection() {
 
       <div className="grid border-b border-border" style={{ gridTemplateColumns: "minmax(16px, 1fr) minmax(0, 720px) minmax(16px, 1fr)" }}>
         <div className="border-r border-border" />
-        <div className="flex items-center px-6 py-2 h-20">
+        <div className="flex items-center px-2 sm:px-6 h-24 sm:py-2 sm:h-20">
           <p className="font-vt323 text-neutral-400 dark:text-neutral-400 text-base">
             Projects I’ve built along the way, driven by curiosity and a focus on creating things that actually work and have real impact.
           </p>

@@ -6,6 +6,7 @@ import Link from "next/link"
 import { usePathname } from "next/navigation"
 import { motion, AnimatePresence } from "framer-motion"
 import { ThemeToggle } from "@/components/theme-toggle"
+import { Button } from "./ui/button"
 
 const navLinks = [
   { label: "Home", href: "/" },
@@ -45,7 +46,7 @@ export function Navbar() {
         <div className="border-r border-border border-t" />
 
         {/* Nav inner */}
-        <div className="flex h-[3.2rem] items-center justify-between px-6 border-t relative">
+        <div className="flex h-[3.2rem] items-center justify-between px-2 sm:px-6 border-t relative">
           {/* Logo */}
           <Link href="/" className="text-[2rem] font-semibold tracking-wide text-foreground hover:opacity-80 transition-opacity font-vt323">
             MH
@@ -74,9 +75,11 @@ export function Navbar() {
             <ThemeToggle />
 
             {/* Mobile menu button - shown only on small screens */}
-            <button
+            <Button
+              variant={"ghost"}
+              size={"icon"}
               onClick={() => setMenuOpen(!menuOpen)}
-              className="sm:hidden flex h-8 w-8 items-center justify-center rounded-md text-muted-foreground hover:text-foreground transition-colors"
+              className="sm:hidden flex h-8 w-8 items-center justify-center rounded-md text-muted-foreground hover:bg-background/50 transition-colors"
               aria-label={menuOpen ? "Close menu" : "Open menu"}
             >
               <AnimatePresence mode="wait">
@@ -88,7 +91,7 @@ export function Navbar() {
                     exit={{ opacity: 0, rotate: 90 }}
                     transition={{ duration: 0.2 }}
                   >
-                    <X className="h-4 w-4" />
+                    <X className="size-5" />
                   </motion.div>
                 ) : (
                   <motion.div
@@ -98,11 +101,11 @@ export function Navbar() {
                     exit={{ opacity: 0, rotate: -90 }}
                     transition={{ duration: 0.2 }}
                   >
-                    <Menu className="h-4 w-4" />
+                    <Menu className="size-5" />
                   </motion.div>
                 )}
               </AnimatePresence>
-            </button>
+            </Button>
 
             {/* Mobile dropdown menu */}
             <AnimatePresence>

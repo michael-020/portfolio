@@ -56,8 +56,8 @@ function ExperienceCard({ item }: { item: ExperienceItem }) {
             {"</>"}
           </div>
           <div className="flex-1 min-w-0">
-            <p className="text-sm font-medium text-foreground">{item.role}</p>
-            <p className="text-[11px] text-muted-foreground">
+            <p className="text-xs sm:text-sm font-medium text-foreground">{item.role}</p>
+            <p className="text-[10px] sm:text-[11px] text-muted-foreground">
               {item.type} &nbsp;·&nbsp; {item.period}
             </p>
           </div>
@@ -73,7 +73,7 @@ function ExperienceCard({ item }: { item: ExperienceItem }) {
           {item.tags.map((tag) => (
             <span
               key={tag}
-              className="rounded-full border border-border px-2.5 py-0.5 text-[11px] text-muted-foreground"
+              className="rounded-full border border-border px-2 py-0.5 text-[10px] sm:text-[11px] text-muted-foreground"
             >
               {tag}
             </span>
@@ -91,7 +91,7 @@ function ExperienceCard({ item }: { item: ExperienceItem }) {
               transition={{ duration: 0.3 }}
             >
               {item.bullets.map((b, i) => (
-                <li key={i} className="flex items-start gap-2 text-xs text-muted-foreground leading-relaxed">
+                <li key={i} className="flex items-start gap-2 text-[11px] sm:text-xs text-muted-foreground leading-relaxed">
                   <span className="mt-1.5 h-1 w-1 flex-shrink-0 rounded-full bg-muted-foreground/50" />
                   {b}
                 </li>
@@ -123,7 +123,7 @@ export function ExperienceSection() {
       {/* Title row */}
       <div className="grid border-b border-border" style={{ gridTemplateColumns: "minmax(16px, 1fr) minmax(0, 720px) minmax(16px, 1fr)" }}>
         <div className="border-r border-border" />
-        <div className="flex items-center px-6 h-12">
+        <div className="flex items-center px-2 sm:px-6 h-12">
           <h2 className="section-heading font-vt323">Experience</h2>
         </div>
         <div className="border-l border-border" />

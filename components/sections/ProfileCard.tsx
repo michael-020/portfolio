@@ -22,7 +22,7 @@ function AnimatedTagline({ text }: { text: string }) {
   return (
     <motion.p
       key={text}
-      className="flex flex-wrap gap-x-[0.3em] text-base font-vt323 text-muted-foreground"
+      className="flex flex-wrap gap-x-[0.3em] text-xs sm:text-base font-vt323 text-muted-foreground"
       initial="hidden"
       animate="visible"
       exit="exit"
@@ -94,11 +94,11 @@ export function ProfileCard() {
       {/* Left rail */}
       <div className="border-r border-border" />
 
-      <div className="relative py-5 px-6">
+      <div className="relative py-5 px-2 sm:px-6">
         <div id="about" className="absolute -top-10" />
 
         <motion.div
-          className="relative flex items-start gap-4 rounded-xl border border-border bg-background p-4"
+          className="relative flex items-start gap-4 rounded-xl border border-border bg-background p-2 sm:p-4"
           initial={{ opacity: 0, y: 12 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, ease: "easeOut" }}
@@ -110,7 +110,7 @@ export function ProfileCard() {
 
           {/* Meta */}
           <div className="min-w-0 flex-1">
-            <h1 className="flex items-center gap-1.5 text-4xl font-semibold text-foreground font-vt323">
+            <h1 className="flex items-center gap-1.5 text-2xl sm:text-4xl font-semibold text-foreground font-vt323">
               Michael Hosamani
             </h1>
 
@@ -121,14 +121,14 @@ export function ProfileCard() {
               </AnimatePresence>
             </div>
 
-            <p className="mt-3 flex items-center gap-1.5 text-base text-muted-foreground font-vt323">
+            <p className="mt-3 flex items-center gap-1.5 text-xs sm:text-base text-muted-foreground font-vt323">
               <span className="inline-block h-1.5 w-1.5 rounded-full bg-neutral-400 dark:bg-neutral-600" />
               Idle · Currently pretending to rest
             </p>
           </div>
 
           {/* Progress dots — click to jump to a tagline */}
-          <div className="absolute bottom-3.5 right-4 flex items-center gap-1">
+          <div className="absolute bottom-3.5 right-4 hidden sm:flex items-center gap-1">
             {taglines.map((_, i) => (
               <button
                 key={i}

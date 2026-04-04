@@ -15,7 +15,7 @@ export function AboutSection() {
       {/* Title row */}
       <div className="grid border-b border-border" style={{ gridTemplateColumns: "minmax(16px, 1fr) minmax(0, 720px) minmax(16px, 1fr)" }}>
         <div className="border-r border-border" />
-        <div className="flex items-center px-6 h-12">
+        <div className="flex items-center px-2 sm:px-6 h-12">
           <h2 className="section-heading font-vt323 text-2xl">About</h2>
         </div>
         <div className="border-l border-border" />
@@ -25,7 +25,7 @@ export function AboutSection() {
       <div className="grid border-b border-border" style={{ gridTemplateColumns: "minmax(16px, 1fr) minmax(0, 720px) minmax(16px, 1fr)" }}>
         <div className="border-r border-border" />
 
-        <div className="relative px-6 py-10">
+        <div className="relative px-2 py-4 sm:px-6 sm:py-10">
           <ul className="space-y-3">
             {bullets.map((text, i) => (
               <li key={i} className="flex items-start gap-3">
