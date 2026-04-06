@@ -39,7 +39,7 @@ function ExperienceCard({ item }: { item: ExperienceItem }) {
       {/* Left: dot + vertical company label */}
       <div className="flex flex-col items-center gap-1 pt-1">
         <span
-          className="text-sm sm:text-xs tracking-widest text-muted-foreground/60 uppercase"
+          className="text-sm sm:text-xs tracking-widest text-muted-foreground uppercase"
           style={{ writingMode: "vertical-rl", transform: "rotate(180deg)" }}
         >
           {item.company}
