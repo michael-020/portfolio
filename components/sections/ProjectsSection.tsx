@@ -57,7 +57,7 @@ function ProjectCard({ project }: { project: (typeof projects)[0] }) {
             href={project.liveUrl}
             target="_blank"
             rel="noreferrer"
-            className="flex items-center justify-center gap-1.5 py-2 text-[11px] text-muted-foreground hover:bg-muted transition-colors"
+            className="flex rounded-lg rounded-r-none rounded-t-none items-center justify-center gap-1.5 py-2 text-[11px] text-muted-foreground hover:bg-muted transition-colors"
           >
             <ExternalLink className="h-3 w-3" />
             Live link
@@ -67,7 +67,7 @@ function ProjectCard({ project }: { project: (typeof projects)[0] }) {
             href={project.githubUrl}
             target="_blank"
             rel="noreferrer"
-            className="flex items-center justify-center gap-1.5 py-2 text-[11px] text-muted-foreground hover:bg-muted transition-colors"
+            className="flex rounded-lg rounded-l-none rounded-t-none items-center justify-center gap-1.5 py-2 text-[11px] text-muted-foreground hover:bg-muted transition-colors"
           >
             <Github className="h-3 w-3" />
             GitHub

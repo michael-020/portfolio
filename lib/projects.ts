@@ -7,7 +7,7 @@ export const projects = [
     tags: ["TypeScript", "Next.js", "Zustand", "Tailwind CSS", "Prisma", "PostgreSQL", "Razorpay"],
     gradient: "",
     image: "/images/projects/zap.png",
-    liveUrl: "zap.michaelhosamani.com",
+    liveUrl: "https://zap.michaelhosamani.com",
     githubUrl: "https://github.com/michael-020/Zap",
   },
   {
@@ -18,7 +18,7 @@ export const projects = [
     tags: ["TypeScript", "Next.js", "Express", "WebSockets", "Zustand", "Tailwind CSS", "Prisma", "PostgreSQL"],
     gradient: "",
     image: "/images/projects/collabodraw.png",
-    liveUrl: "collabodraw.michaelhosamani.com",
+    liveUrl: "https://collabodraw.michaelhosamani.com",
     githubUrl: "https://github.com/michael-020/CollaboDraw",
   },
   {
@@ -29,7 +29,7 @@ export const projects = [
     tags: ["TypeScript", "MERN", "Pgvector", "WebSockets", "Zustand", "MongoDB"],
     gradient: "",
     image: "/images/projects/cacheupp.png",
-    liveUrl: "cacheupp.com",
+    liveUrl: "https://cacheupp.com",
     githubUrl: "https://github.com/michael-020/CacheUp",
   },
   {
@@ -40,7 +40,7 @@ export const projects = [
     tags: ["TypeScript", "Next.js", "Framer Motion", "Zustand", "Prisma", "PostgreSQL"],
     gradient: "",
     image: "/images/projects/readmex.png",
-    liveUrl: "readmex.michaelhosamani.com",
+    liveUrl: "https://readmex.michaelhosamani.com",
     githubUrl: "https://github.com/michael-020/Readme-generator",
   },
   {
@@ -51,7 +51,7 @@ export const projects = [
     tags: ["TypeScript", "MERN Stack", "WebSockets", "Zustand", "MongoDB"],
     gradient: "",
     image: "/images/projects/devtalk.png",
-    liveUrl: "devtalk.michaelhosamani.com",
+    liveUrl: "https://devtalk.michaelhosamani.com",
     githubUrl: "https://github.com/michael-020/DevTalk",
   },
   {
@@ -62,7 +62,7 @@ export const projects = [
     tags: ["TypeScript", "Next.js", "Framer-motion"],
     gradient: "",
     image: "/images/projects/coders-cafe.png",
-    liveUrl: "coderscafe.michaelhosamani.com",
+    liveUrl: "https://coderscafe.michaelhosamani.com",
     githubUrl: "https://github.com/michael-020/coders-cafe",
   },
   {
@@ -73,7 +73,7 @@ export const projects = [
     tags: ["TypeScript", "React", "Node.js", "Express", "MongoDB", "Zustand", "Tailwind CSS", "Docker"],
     gradient: "",
     image: "/images/projects/taskly.png",
-    liveUrl: "taskly.michaelhosamani.com",
+    liveUrl: "https://taskly.michaelhosamani.com",
     githubUrl: "https://github.com/michael-020/task-manager",
   },
 ]
