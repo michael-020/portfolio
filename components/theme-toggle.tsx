@@ -32,7 +32,7 @@ export function ThemeToggle() {
   
   const { ref, toggleSwitchTheme } = useModeAnimation({
     animationType: ThemeAnimationType.QR_SCAN,
-    duration: 500,
+    duration: 1000,
     onDarkModeChange: () => {
       setTheme(isDarkModeRef.current ? "light" : "dark")
     }
