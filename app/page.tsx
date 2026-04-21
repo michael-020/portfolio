@@ -10,6 +10,7 @@ import { Navbar } from "@/components/navbar"
 import { HeroGrid } from "@/components/sections/HeroGrid"
 import { GitHubActivity } from "@/components/sections/GitHubActivity"
 import { SectionSeparator } from "@/components/sections/SectionSeparator"
+import { QuoteSection } from "@/components/sections/QuoteSection"
 
 export default function Portfolio() {
   return (
@@ -29,6 +30,8 @@ export default function Portfolio() {
         <ExperienceSection />
         <SectionSeparator />
         <SkillsSection />
+        <SectionSeparator />
+        <QuoteSection />
         <SectionSeparator />
         <Footer />
         <HeroGrid />
