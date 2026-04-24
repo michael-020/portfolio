@@ -23,7 +23,7 @@ export function QuoteSection() {
             initial={{ opacity: 0, scale: 0.8 }}
             whileInView={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.6 }}
-            className="text-6xl sm:text-7xl text-muted-foreground/60"
+            className="text-6xl sm:text-7xl text-muted-foreground/0"
           >
             <Quote className="size-12 fill-muted-foreground/60" />
           </motion.div>
